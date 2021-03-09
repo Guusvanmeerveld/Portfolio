@@ -1,0 +1,26 @@
+.message {
+  font-family: "Raleway";
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  .icon {
+    font-size: 10rem;
+  }
+
+  .header {
+    font-size: 5rem;
+  }
+
+  .subtitle {
+    font-size: 3rem;
+  }
+
+  .link {
+    margin-top: 1.5rem;
+  }
+}

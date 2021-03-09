@@ -4,7 +4,15 @@ const Contact = () => (
       <div className="header" id="contact">
         Contact
       </div>
-      <form className="content" method="POST" data-netlify="true" name="contact" data-netlify-recaptcha="true">
+      <form
+        encType="application/x-www-form-urlencoded"
+        action="/thanks"
+        className="content"
+        method="POST"
+        data-netlify="true"
+        name="contact"
+        data-netlify-recaptcha="true"
+      >
         <fieldset>
           <label htmlFor="email">Email</label>
           <input name="email" type="email" required placeholder="Your email address" id="email" />
