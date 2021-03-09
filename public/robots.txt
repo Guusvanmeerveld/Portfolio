@@ -1,1 +1,2 @@
 Disallow /binas
+Disallow /upload

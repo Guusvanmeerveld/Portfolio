@@ -1,8 +1,7 @@
 import Page from "../components/Page";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
 import LazyLoad from "react-lazyload";
 import { Component } from "react";
+import Layout from "../components/Layout";
 
 class Binas extends Component {
   links: string[];
@@ -23,15 +22,15 @@ class Binas extends Component {
   render() {
     return (
       <Page title="Binas" description="Voor wanneer je effe de binas nodig hebt">
-        <Navbar />
-        <div className="binas">
-          {this.links.map((link) => (
-            <LazyLoad height={100} offset={100}>
-              <img src={link} alt="" />
-            </LazyLoad>
-          ))}
-        </div>
-        <Footer />
+        <Layout>
+          <div className="binas">
+            {this.links.map((link) => (
+              <LazyLoad height={100} offset={100}>
+                <img src={link} alt="" />
+              </LazyLoad>
+            ))}
+          </div>
+        </Layout>
       </Page>
     );
   }
