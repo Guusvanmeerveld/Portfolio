@@ -1,5 +1,6 @@
 import Page from "../components/Page";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const Thanks = () => (
   <Page title="Thanks!" description="Thanks for submitting your contact form!">
@@ -14,6 +15,7 @@ const Thanks = () => (
         </a>
       </div>
     </div>
+    <Footer />
   </Page>
 );
 
