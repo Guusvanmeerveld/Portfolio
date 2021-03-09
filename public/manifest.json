@@ -1,0 +1,16 @@
+{
+    "short_name": "Porfolio",
+    "name": "Guus van Meerveld's portfolio",
+    "icons": [
+        {
+            "src": "/img/profile-192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        }
+    ],
+    "background_color": "#FFFFFF",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#9b4dca",
+    "description": "A simple portfolio website to display my projects."
+}

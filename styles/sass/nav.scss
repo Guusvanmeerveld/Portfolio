@@ -1,0 +1,24 @@
+.navigation {
+  z-index: 1;
+  background-color: #f4f5f6;
+  border-bottom: 0.1rem solid #d1d1d1;
+
+  position: fixed;
+  top: 0;
+  font-family: "Raleway";
+  padding: 1.5rem 0;
+
+  width: 100%;
+
+  .header {
+    font-size: 1.75rem;
+  }
+
+  .items {
+    float: right;
+
+    a {
+      margin-left: 1rem;
+    }
+  }
+}

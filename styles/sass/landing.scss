@@ -1,0 +1,31 @@
+.landing {
+  background: #f4f5f6;
+  margin-top: 6rem;
+
+  .container {
+    padding: 7rem 3rem;
+  }
+
+  .profile {
+    height: 10rem;
+    width: 10rem;
+    margin: auto;
+    margin-bottom: 3rem;
+    display: block;
+  }
+
+  text-align: center;
+  font-family: "Raleway";
+
+  .title {
+    font-size: 4rem;
+    display: block;
+  }
+
+  .subtitle {
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    display: block;
+    font-size: 2rem;
+  }
+}
