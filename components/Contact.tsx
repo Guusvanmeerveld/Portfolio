@@ -4,12 +4,12 @@ const Contact = () => (
       <div className="header" id="contact">
         Contact
       </div>
-      <form className="content" method="POST" data-netlify="true" name="contact">
+      <form className="content" method="POST" data-netlify="true" name="contact" data-netlify-recaptcha="true">
         <fieldset>
           <label htmlFor="email">Email</label>
           <input name="email" type="email" required placeholder="Your email address" id="email" />
           <label htmlFor="type">Message type</label>
-          <select name="type" id="type">
+          <select name="type[]" id="type">
             <option value="bug">Bug</option>
             <option value="question">Question</option>
             <option value="suggestion">Suggestion</option>
@@ -17,7 +17,10 @@ const Contact = () => (
           </select>
           <label htmlFor="message">Message</label>
           <textarea required name="message" placeholder="Your message" id="message"></textarea>
-          <input className="button" type="submit" value="Send" />
+          <div data-netlify-recaptcha="true"></div>
+          <button className="button" type="submit">
+            Send
+          </button>
         </fieldset>
       </form>
     </div>
