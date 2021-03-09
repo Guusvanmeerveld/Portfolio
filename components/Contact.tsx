@@ -4,7 +4,7 @@ const Contact = () => (
       <div className="header" id="contact">
         Contact
       </div>
-      <form className="content" method="POST" action="/contact" data-netlify="true" name="contact">
+      <form className="content" method="POST" data-netlify="true" name="contact">
         <fieldset>
           <label htmlFor="email">Email</label>
           <input name="email" type="email" required placeholder="Your email address" id="email" />
