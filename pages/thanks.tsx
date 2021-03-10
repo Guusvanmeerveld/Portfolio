@@ -4,7 +4,7 @@ import Layout from "../components/Layout";
 const Thanks = () => (
   <Page title="Thanks!" description="Thanks for submitting your contact form!">
     <Layout>
-      <div className="message">
+      <div className="page">
         <div>
           <div className="icon">❤️</div>
           <div className="header">Thank you!</div>
