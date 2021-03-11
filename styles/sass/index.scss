@@ -1,8 +1,12 @@
-@import "home/nav.scss";
-@import "home/landing.scss";
-@import "home/project.scss";
-@import "home/contact.scss";
-@import "home/footer.scss";
+@import "nav.scss";
+@import "landing.scss";
+@import "project.scss";
+@import "contact.scss";
+@import "footer.scss";
+
+@import "binas.scss";
+@import "upload.scss";
+@import "page.scss";
 
 body {
   margin: 0;

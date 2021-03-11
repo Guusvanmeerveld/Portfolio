@@ -10,4 +10,6 @@ const Navbar = () => (
   </nav>
 );
 
+const darkButton = () => {};
+
 export default Navbar;

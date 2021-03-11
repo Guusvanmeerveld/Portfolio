@@ -1,7 +1,7 @@
-import Page from "../components/Page";
+import Page from "@components/Page";
 import LazyLoad from "react-lazyload";
 import { Component } from "react";
-import Layout from "../components/Layout";
+import Layout from "@components/Layout";
 
 class Binas extends Component {
   links: string[];
