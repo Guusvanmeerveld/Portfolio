@@ -11,16 +11,16 @@ const Footer = () => {
           &#169; {year}
         </div>
         <div className="socials">
-          <a href="https://twitter.com/GuusvanMeerveld">
+          <a href="https://twitter.com/GuusvanMeerveld" aria-label="twitter link">
             <FaTwitter className="img" />
           </a>
-          <a href="https://www.youtube.com/channel/UCYuqpoMay5SezCBrA_HKVWQ">
+          <a href="https://www.youtube.com/channel/UCYuqpoMay5SezCBrA_HKVWQ" aria-label="youtube link">
             <FaYoutube className="img" />
           </a>
-          <a href="https://ko-fi.com/guusvanmeerveld">
+          <a href="https://ko-fi.com/guusvanmeerveld" aria-label="kofi link">
             <FaCoffee className="img" />
           </a>
-          <a href="https://github.com/guusvanmeerveld">
+          <a href="https://github.com/guusvanmeerveld" aria-label="github link">
             <FaGithub className="img" />
           </a>
         </div>
