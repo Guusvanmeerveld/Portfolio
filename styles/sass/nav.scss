@@ -1,7 +1,7 @@
 .navigation {
   z-index: 1;
-  background-color: #f4f5f6;
-  border-bottom: 0.1rem solid #d1d1d1;
+  background-color: var(--secondary);
+  border-bottom: 0.1rem solid var(--borders);
 
   position: fixed;
   top: 0;
@@ -16,9 +16,31 @@
 
   .items {
     float: right;
+    display: flex;
+    justify-content: center;
+
+    .moon {
+      display: none;
+    }
+
+    .dark-switch {
+      font-size: 2rem;
+      margin-left: 1rem;
+      margin-top: 0.25rem;
+    }
 
     a {
       margin-left: 1rem;
     }
+  }
+}
+
+[data-theme="dark"] {
+  .sun {
+    display: none;
+  }
+
+  .moon {
+    display: inline-block !important;
   }
 }

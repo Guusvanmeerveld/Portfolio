@@ -12,16 +12,16 @@ const Footer = () => {
         </div>
         <div className="socials">
           <a href="https://twitter.com/GuusvanMeerveld">
-            <FaTwitter className="img" color="#666" />
+            <FaTwitter className="img" />
           </a>
           <a href="https://www.youtube.com/channel/UCYuqpoMay5SezCBrA_HKVWQ">
-            <FaYoutube className="img" color="#666" />
+            <FaYoutube className="img" />
           </a>
           <a href="https://ko-fi.com/guusvanmeerveld">
-            <FaCoffee className="img" color="#666" />
+            <FaCoffee className="img" />
           </a>
           <a href="https://github.com/guusvanmeerveld">
-            <FaGithub className="img" color="#666" />
+            <FaGithub className="img" />
           </a>
         </div>
       </div>

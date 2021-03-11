@@ -51,8 +51,8 @@ const Projects = () => (
           <div className="info">
             <div className="title">Keyzo</div>
             Keyzo is an electron-based program written in <b>JavaScript and CSS</b> but I am planning on moving to
-            <b>TypeScript</b>. It's main use is to bring every keybind you will every need into a single program, with a
-            simple and neat interface. <br />
+            <b> TypeScript</b>. It's main use is to bring every keybind you will every need into a single program, with
+            a simple and neat interface. <br />
             <br />
             <a href="https://keyzo.net" className="button">
               Website

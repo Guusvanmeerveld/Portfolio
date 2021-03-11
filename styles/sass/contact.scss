@@ -3,8 +3,16 @@
     font-size: 4rem;
     text-align: center;
     margin-bottom: 3rem;
-    border-top: 0.1rem solid #f4f5f6;
+    border-top: 0.1rem solid var(--borders);
     padding-top: 4rem;
+  }
+
+  input,
+  textarea,
+  select {
+    border-color: var(--borders);
+    color: var(--foreground);
+    background-color: var(--secondary);
   }
 
   font-family: "Raleway";
