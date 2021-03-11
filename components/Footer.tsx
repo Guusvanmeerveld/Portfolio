@@ -1,3 +1,5 @@
+import { FaTwitter, FaYoutube, FaCoffee, FaGithub } from "react-icons/fa";
+
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
@@ -10,16 +12,16 @@ const Footer = () => {
         </div>
         <div className="socials">
           <a href="https://twitter.com/GuusvanMeerveld">
-            <img src="/svg/twitter.svg" alt="" />
+            <FaTwitter className="img" color="#666" />
           </a>
           <a href="https://www.youtube.com/channel/UCYuqpoMay5SezCBrA_HKVWQ">
-            <img src="/svg/youtube.svg" alt="" />
+            <FaYoutube className="img" color="#666" />
           </a>
           <a href="https://ko-fi.com/guusvanmeerveld">
-            <img src="/svg/coffee.svg" alt="" />
+            <FaCoffee className="img" color="#666" />
           </a>
           <a href="https://github.com/guusvanmeerveld">
-            <img src="/svg/github.svg" alt="" />
+            <FaGithub className="img" color="#666" />
           </a>
         </div>
       </div>

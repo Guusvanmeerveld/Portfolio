@@ -21,7 +21,7 @@ const Projects = () => (
             </a>
           </div>
           <div className="cover">
-            <img src="/argo.png" width="100%" height="100%" alt="" />
+            <img src="/img/argo.png" width="100%" height="100%" alt="" />
           </div>
         </div>
       </div>
@@ -29,7 +29,7 @@ const Projects = () => (
       <div className="project">
         <div className="content">
           <div className="cover">
-            <img src="/tempo.png" width="100%" height="100%" alt="" />
+            <img src="/img/tempo.png" width="100%" height="100%" alt="" />
           </div>
           <div className="info right">
             <div className="title">Tempo</div>
@@ -68,7 +68,7 @@ const Projects = () => (
       <div className="project">
         <div className="content">
           <div className="cover">
-            <img src="/autologin.png" width="100%" height="100%" alt="" />
+            <img src="/img/autologin.png" width="100%" height="100%" alt="" />
           </div>
           <div className="info right">
             <div className="title">Magister Auto-Login</div>
