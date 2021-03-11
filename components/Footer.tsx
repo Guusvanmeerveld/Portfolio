@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="container">
-        <img src="/profile.png" width="100%" height="100%" alt="" className="profile" />
+        <img src="/img/profile.png" width="100%" height="100%" alt="" className="profile" />
         <div className="branding">
           Guus van Meerveld <br />
           &#169; {year}
