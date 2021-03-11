@@ -1,5 +1,4 @@
 import Page from "@components/Page";
-import LazyLoad from "react-lazyload";
 import { Component } from "react";
 import Layout from "@components/Layout";
 
@@ -24,10 +23,8 @@ class Binas extends Component {
       <Page title="Binas" description="Voor wanneer je effe de binas nodig hebt">
         <Layout>
           <div className="binas">
-            {this.links.map((link) => (
-              <LazyLoad height={100} offset={100}>
-                <img src={link} alt="" />
-              </LazyLoad>
+            {this.links.map((link, i) => (
+              <img key={i} src={link} alt="" />
             ))}
           </div>
         </Layout>
