@@ -1,5 +1,5 @@
-import Page from "@components/Page";
-import Layout from "@components/Layout";
+import Page from "src/components/Page";
+import Layout from "src/components/Layout";
 
 const NotFound = () => (
   <Page title="Page not found" description="This page either doesn't exist or has been deleted">

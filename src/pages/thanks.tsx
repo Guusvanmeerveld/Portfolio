@@ -1,5 +1,5 @@
-import Page from "@components/Page";
-import Layout from "@components/Layout";
+import Page from "src/components/Page";
+import Layout from "src/components/Layout";
 
 const Thanks = () => (
   <Page title="Thanks!" description="Thanks for submitting your contact form!">

@@ -1,5 +1,6 @@
 import { useTheme } from "next-themes";
-import { FaMoon, FaSun } from "react-icons/fa";
+import { BiMoon } from "react-icons/bi";
+import { ImSun } from "react-icons/im";
 
 const Navbar = () => {
   const { theme, setTheme } = useTheme();
@@ -14,8 +15,8 @@ const Navbar = () => {
           <a href="/#contact">Contact</a>
           <a href="https://github.com/guusvanmeerveld/portfolio">Source code</a>
 
-          <FaMoon onClick={switchTheme} className="dark-switch moon" />
-          <FaSun onClick={switchTheme} className="dark-switch sun" />
+          <BiMoon onClick={switchTheme} className="dark-switch moon" />
+          <ImSun onClick={switchTheme} className="dark-switch sun" />
         </div>
       </div>
     </nav>

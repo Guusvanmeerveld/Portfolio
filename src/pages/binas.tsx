@@ -1,6 +1,6 @@
 import Page from "@components/Page";
-import { Component } from "react";
 import Layout from "@components/Layout";
+import { Component } from "react";
 
 class Binas extends Component {
   links: string[];
