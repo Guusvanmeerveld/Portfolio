@@ -1,64 +1,64 @@
 .projects {
-  .header {
-    font-size: 4rem;
-    text-align: center;
-    margin-bottom: 3rem;
-  }
+	.header {
+		font-size: 4rem;
+		text-align: center;
+		margin-bottom: 3rem;
+	}
 
-  font-family: "Raleway";
-  margin-top: 3rem;
+	font-family: 'Raleway';
+	margin-top: 3rem;
 
-  .project {
-    border-top: 0.1rem solid var(--borders);
+	.project {
+		border-top: 0.1rem solid var(--borders);
 
-    padding: 5rem 0;
+		padding: 5rem 0;
 
-    .title {
-      font-size: 4rem;
-    }
+		.title {
+			font-size: 4rem;
+		}
 
-    .right {
-      text-align: right;
-    }
+		.right {
+			text-align: right;
+		}
 
-    .content {
-      display: flex;
+		.content {
+			display: flex;
 
-      .info {
-        font-size: 2rem;
-        width: 50%;
+			.info {
+				font-size: 2rem;
+				width: 50%;
 
-        .button:not(:last-child) {
-          margin-right: 1rem;
-        }
-      }
+				.button:not(:last-child) {
+					margin-right: 1rem;
+				}
+			}
 
-      .cover {
-        width: 50%;
+			.cover {
+				width: 50%;
 
-        img {
-          display: block;
-          margin: auto;
-          height: 20rem;
-          width: 20rem;
-        }
-      }
+				img {
+					display: block;
+					margin: auto;
+					height: 20rem;
+					width: 20rem;
+				}
+			}
 
-      @media only screen and (max-width: 600px) {
-        .cover,
-        .info {
-          width: 100%;
-          margin: 2rem 0;
-          text-align: center;
+			@media only screen and (max-width: 600px) {
+				.cover,
+				.info {
+					width: 100%;
+					margin: 2rem 0;
+					text-align: center;
 
-          img {
-            height: 15rem;
-            width: 15rem;
-          }
-        }
+					img {
+						height: 15rem;
+						width: 15rem;
+					}
+				}
 
-        display: block;
-      }
-    }
-  }
+				display: block;
+			}
+		}
+	}
 }

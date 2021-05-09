@@ -1,21 +1,21 @@
 const Landing = () => (
-  <div className="landing">
-    <div className="container">
-      <span className="profile">
-        <img src="/img/profile.svg" width="100%" height="100%" alt="" />
-      </span>
+	<div className="landing">
+		<div className="container">
+			<span className="profile">
+				<img src="/img/profile.svg" width="100%" height="100%" alt="" />
+			</span>
 
-      <span className="title">Guus van Meerveld</span>
-      <span className="subtitle">
-        TypeScript / Dart developer, <br />
-        currently working on Argo.
-      </span>
+			<span className="title">Guus van Meerveld</span>
+			<span className="subtitle">
+				TypeScript / Dart developer, <br />
+				currently working on Argo.
+			</span>
 
-      <a href="#projects" className="button d-block m-auto">
-        Check out my projects
-      </a>
-    </div>
-  </div>
+			<a href="#projects" className="button d-block m-auto">
+				Check out my projects
+			</a>
+		</div>
+	</div>
 );
 
 export default Landing;
