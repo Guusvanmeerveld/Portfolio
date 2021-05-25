@@ -2,7 +2,7 @@ import { FormEventHandler, useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useTheme } from 'next-themes';
 
-const formURL = 'http://localhost:4000/portfolio';
+const formURL = 'http://ldev.guusvanmeerveld.dev/portfolio';
 
 const Contact = () => {
 	const { theme, setTheme } = useTheme();
