@@ -1,11 +1,10 @@
-import { FormEventHandler, useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useTheme } from 'next-themes';
 
-const formURL = 'http://ldev.guusvanmeerveld.dev/portfolio';
+const formURL = 'https://forms.guusvanmeerveld.dev/portfolio';
 
 const Contact = () => {
-	const { theme, setTheme } = useTheme();
+	const { theme } = useTheme();
 
 	return (
 		<div className="contact">
