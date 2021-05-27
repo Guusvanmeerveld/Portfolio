@@ -1,17 +1,8 @@
 import { FC } from 'react';
 
-interface Button {
-	link: string;
-	text: string;
-}
+import ProjectType from '@models/project';
 
-const Project: FC<{
-	name: string;
-	description: string;
-	buttons: Button[];
-	cover?: string;
-	right?: boolean;
-}> = ({ name, description, buttons, cover, right }) => {
+const Project: FC<ProjectType> = ({ name, description, buttons, cover, right }) => {
 	return (
 		<div className="project">
 			<div className="content">
@@ -28,7 +19,7 @@ const Project: FC<{
 				</div>
 				{cover ? (
 					<div className="cover">
-						<img src={cover} width="100%" height="100%" alt="" />
+						<img src={`/assets/images/${cover}`} width="100%" height="100%" alt="" />
 					</div>
 				) : null}
 			</div>

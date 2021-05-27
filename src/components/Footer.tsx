@@ -4,7 +4,13 @@ const Footer = () => {
 	return (
 		<footer className="footer">
 			<div className="container">
-				<img src="/img/profile.svg" width="100%" height="100%" alt="" className="profile" />
+				<img
+					src="/assets/images/profile.svg"
+					width="100%"
+					height="100%"
+					alt=""
+					className="profile"
+				/>
 				<div className="branding">
 					Guus van Meerveld <br />
 					&#169; 2021
