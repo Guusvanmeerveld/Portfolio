@@ -11,8 +11,8 @@ const Project: FC<ProjectType> = ({ name, description, buttons, cover, right }) 
 					{description}
 					<br />
 					<br />
-					{buttons.map((button) => (
-						<a href={button.link} className="button">
+					{buttons.map((button, i) => (
+						<a href={button.link} className="button" key={i}>
 							{button.text}
 						</a>
 					))}
