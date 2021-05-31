@@ -6,7 +6,9 @@ import React, { Component } from 'react';
 class Binas extends Component {
 	links: string[];
 
-	componentDidMount(): void {
+	constructor(props: unknown) {
+		super(props);
+
 		this.links = [];
 
 		for (let i = 1; i < 305; i++) {
