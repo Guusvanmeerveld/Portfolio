@@ -1,6 +1,8 @@
 import { FaTwitter, FaYoutube, FaCoffee, FaGithub } from 'react-icons/fa';
 
-const Footer = () => {
+import { FC } from 'react';
+
+const Footer: FC = () => {
 	return (
 		<footer className="footer">
 			<div className="container">

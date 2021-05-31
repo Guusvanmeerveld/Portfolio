@@ -1,9 +1,11 @@
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useTheme } from 'next-themes';
 
+import { FC } from 'react';
+
 const formURL = 'https://forms.guusvanmeerveld.dev/portfolio';
 
-const Contact = () => {
+const Contact: FC = () => {
 	const { theme } = useTheme();
 
 	return (

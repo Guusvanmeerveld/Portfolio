@@ -1,14 +1,12 @@
 import Head from 'next/head';
 
-const Page = ({
-	title,
-	description,
-	children,
-}: {
+import { FC } from 'react';
+
+const Page: FC<{
 	title: string;
 	description: string;
 	children: JSX.Element[] | JSX.Element;
-}) => (
+}> = ({ title, description, children }) => (
 	<>
 		<Head>
 			<meta charSet="UTF-8" />

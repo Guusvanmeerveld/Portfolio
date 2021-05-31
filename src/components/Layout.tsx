@@ -1,7 +1,9 @@
-import Navbar from './Navbar';
-import Footer from './Footer';
+import { FC } from 'react';
 
-const Layout = ({ children }) => (
+import Navbar from '@components/Navbar';
+import Footer from '@components/Footer';
+
+const Layout: FC<{ children: JSX.Element | JSX.Element[] }> = ({ children }) => (
 	<>
 		<Navbar />
 		{children}
