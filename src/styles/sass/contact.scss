@@ -3,7 +3,7 @@
 		font-size: 4rem;
 		text-align: center;
 		margin-bottom: 3rem;
-		border-top: 0.1rem solid var(--borders);
+		// border-top: 0.1rem solid var(--borders);
 		padding-top: 4rem;
 	}
 
@@ -25,4 +25,10 @@
 		resize: none;
 		height: 10rem;
 	}
+}
+
+.contact-page {
+	height: 100vh;
+
+	padding-top: 10rem;
 }

@@ -1,6 +1,5 @@
 import { NextPage } from 'next';
 
-import Contact from '@components/Contact';
 import Layout from '@components/Layout';
 import Page from '@components/Page';
 
@@ -39,8 +38,6 @@ const Home: NextPage = () => (
 					))}
 				</div>
 			</div>
-
-			<Contact />
 		</Layout>
 	</Page>
 );
