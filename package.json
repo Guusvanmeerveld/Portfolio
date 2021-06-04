@@ -7,7 +7,8 @@
 		"build": "next build",
 		"start": "next start",
 		"prettify": "prettier --write .",
-		"lint": "eslint src"
+		"lint": "eslint src",
+		"export": "next build && next export"
 	},
 	"dependencies": {
 		"milligram": "^1.4.1",
