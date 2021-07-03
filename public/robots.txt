@@ -1,2 +1,2 @@
 User-agent: *
-Disallow: /binas
+Disallow: 
