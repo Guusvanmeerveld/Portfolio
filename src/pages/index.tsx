@@ -33,9 +33,10 @@ const Home: NextPage = () => (
 						Projects
 					</div>
 
-					{projects.map((project) => (
-						<Project key={project.name} {...project} />
-					))}
+					{projects.map((project, i) => {
+						const props = { ...project, right: (i + 1) % 2 == 0 };
+						return <Project key={project.name} {...props} />;
+					})}
 				</div>
 			</div>
 		</Layout>

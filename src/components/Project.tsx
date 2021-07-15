@@ -2,7 +2,11 @@ import { FC } from 'react';
 
 import ProjectType from '@models/project';
 
-const Project: FC<ProjectType> = ({ name, description, buttons, cover, right }) => {
+interface ProjectComponent extends ProjectType {
+	right: boolean;
+}
+
+const Project: FC<ProjectComponent> = ({ name, description, buttons, cover, right }) => {
 	return (
 		<div className="project">
 			<div className="content">
