@@ -1,5 +1,5 @@
 :root {
-	--primary: #9a36d8;
+	--primary: #9ccc65;
 	--background: white;
 	--secondary: #f4f5f6;
 	--borders: #e4e4e4;
@@ -11,7 +11,7 @@
 		filter: invert(1);
 	}
 
-	--primary: #00b8d4;
+	--primary: #388e3c;
 	--background: #212123;
 	--secondary: #1c1c1c;
 	--borders: #3c3838;
@@ -28,6 +28,11 @@ body {
 
 a {
 	color: var(--primary);
+}
+
+.button {
+	background-color: var(--primary);
+	border-color: var(--primary);
 }
 
 @import 'page.scss';
