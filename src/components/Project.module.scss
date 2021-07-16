@@ -1,0 +1,56 @@
+.body {
+	border-top: 0.1rem solid var(--borders);
+
+	padding: 5rem 0;
+}
+
+.title {
+	font-size: 4rem;
+}
+
+.right {
+	text-align: right;
+}
+
+.content {
+	display: flex;
+}
+
+.info,
+.right {
+	font-size: 2rem;
+	width: 50%;
+}
+
+.button:not(:last-child) {
+	margin-right: 1rem;
+}
+
+.cover {
+	width: 50%;
+
+	img {
+		display: block;
+		margin: auto;
+		height: 20rem;
+		width: 20rem;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.cover,
+	.info {
+		width: 100%;
+		margin: 2rem 0;
+		text-align: center;
+
+		img {
+			height: 15rem;
+			width: 15rem;
+		}
+	}
+
+	.content {
+		display: block;
+	}
+}

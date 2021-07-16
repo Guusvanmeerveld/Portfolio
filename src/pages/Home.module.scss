@@ -1,0 +1,40 @@
+.body {
+	background: var(--secondary);
+	margin-top: 6rem;
+
+	text-align: center;
+}
+
+.content {
+	padding: 7rem 3rem;
+}
+
+.profile {
+	height: 10rem;
+	width: 10rem;
+	margin: auto;
+	margin-bottom: 3rem;
+	display: block;
+}
+
+.title {
+	font-size: 4rem;
+	display: block;
+}
+
+.subtitle {
+	margin-top: 2rem;
+	margin-bottom: 4rem;
+	display: block;
+	font-size: 2rem;
+}
+
+.header {
+	font-size: 4rem;
+	text-align: center;
+	margin-bottom: 3rem;
+}
+
+.projects {
+	margin-top: 3rem;
+}

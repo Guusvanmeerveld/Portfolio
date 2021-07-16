@@ -8,9 +8,7 @@ const Contact: NextPage = () => {
 	return (
 		<Page description="Contact me" title="Contact">
 			<Layout>
-				<div className="contact-page">
-					<ContactForm />
-				</div>
+				<ContactForm />
 			</Layout>
 		</Page>
 	);

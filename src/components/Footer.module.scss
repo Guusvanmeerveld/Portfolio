@@ -1,0 +1,31 @@
+.body {
+	background-color: var(--secondary);
+	border-top: 0.1rem solid var(--borders);
+
+	padding: 3rem;
+}
+
+.profile {
+	width: 5rem;
+	height: 5rem;
+}
+
+.branding {
+	display: inline-block;
+	font-size: 2rem;
+	margin-left: 1rem;
+	vertical-align: top;
+}
+
+.socials {
+	margin-left: 4rem;
+	display: inline-block;
+	height: 100%;
+	padding: 1rem 0;
+}
+
+.socialLink {
+	height: 3rem;
+	width: 3rem;
+	margin-right: 2rem;
+}

@@ -5,7 +5,7 @@ import type { AppProps } from 'next/app';
 import 'milligram';
 import '@styles/raleway.css';
 
-import '@styles/sass/index.scss';
+import '@styles/globals.scss';
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
 	return (

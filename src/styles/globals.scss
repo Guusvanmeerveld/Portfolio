@@ -1,8 +1,8 @@
 :root {
+	--primary: #9a36d8;
 	--background: white;
 	--secondary: #f4f5f6;
 	--borders: #e4e4e4;
-	--links: #9a36d8;
 	--foreground: #606c76;
 }
 
@@ -11,8 +11,8 @@
 		filter: invert(1);
 	}
 
+	--primary: #00b8d4;
 	--background: #212123;
-	--links: #c181e8;
 	--secondary: #1c1c1c;
 	--borders: #3c3838;
 	--foreground: rgb(236, 235, 235);
@@ -22,17 +22,12 @@ body {
 	margin: 0;
 	background-color: var(--background);
 	color: var(--foreground);
+
+	font-family: 'Raleway';
 }
 
 a {
-	color: var(--links);
+	color: var(--primary);
 }
 
-@import 'nav.scss';
-@import 'landing.scss';
-@import 'project.scss';
-@import 'contact.scss';
-@import 'footer.scss';
-
-@import 'upload.scss';
 @import 'page.scss';

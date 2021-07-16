@@ -1,0 +1,28 @@
+.header {
+	font-size: 4rem;
+	text-align: center;
+	margin-bottom: 3rem;
+	padding-top: 4rem;
+}
+
+.input,
+.textarea {
+	border-color: var(--borders);
+	color: var(--foreground);
+	background-color: var(--secondary);
+}
+
+.textarea {
+	resize: none;
+	height: 10rem;
+}
+
+.submit {
+	margin-top: 1.5rem;
+}
+
+.contact {
+	height: 100vh;
+
+	padding-top: 10rem;
+}

@@ -4,21 +4,23 @@ import { ImSun } from 'react-icons/im';
 
 import { FC } from 'react';
 
+import styles from './Navbar.module.scss';
+
 const Navbar: FC = () => {
 	const { theme, setTheme } = useTheme();
 	const switchTheme = (): void => setTheme(theme == 'dark' ? 'light' : 'dark');
 
 	return (
-		<nav className="navigation">
+		<nav className={styles.bar}>
 			<div className="container">
-				<span className="header">Portfolio</span>
-				<div className="items">
+				<span className={styles.header}>Portfolio</span>
+				<div className={styles.items}>
 					<a href="/#projects">Projects</a>
 					<a href="/contact">Contact</a>
 					<a href="https://github.com/guusvanmeerveld/portfolio">Source code</a>
 
-					<BiMoon onClick={switchTheme} className="dark-switch moon" />
-					<ImSun onClick={switchTheme} className="dark-switch sun" />
+					<BiMoon onClick={switchTheme} className={styles.moon} />
+					<ImSun onClick={switchTheme} className={styles.sun} />
 				</div>
 			</div>
 		</nav>
