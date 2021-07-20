@@ -1,18 +1,18 @@
 
-FROM node:slim AS deps
+FROM node AS deps
 
 WORKDIR /app
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
-FROM node:slim AS builder
+FROM node AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 ENV NEXT_TELEMETRY_DISABLED 1;
 RUN yarn build && yarn install --production --ignore-scripts --prefer-offline
 
-FROM node:slim AS runner
+FROM node AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
