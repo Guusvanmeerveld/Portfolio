@@ -1,0 +1,17 @@
+{
+    "pages": {
+        "home": {
+            "title": "Home",
+            "description": "A simple portfolio website to display my projects.",
+            "subtitle": "Hi, I am a full stack web developer",
+            "projects": {
+                "button": "Check out my projects"
+            }
+        }
+    },
+    "nav": {
+        "projects": "Projects",
+        "contact": "Contact",
+        "github": "Source code"
+    }
+}

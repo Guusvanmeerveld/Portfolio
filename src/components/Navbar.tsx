@@ -1,4 +1,6 @@
+import { useI18n } from 'next-localization';
 import { useTheme } from 'next-themes';
+import { GetStaticProps } from 'next';
 import Link from 'next/link';
 
 import { BiMoon } from 'react-icons/bi';
@@ -9,6 +11,8 @@ import { FC } from 'react';
 import styles from './Navbar.module.scss';
 
 const Navbar: FC = () => {
+	const { t } = useI18n();
+
 	const { theme, setTheme } = useTheme();
 	const switchTheme = (): void => setTheme(theme == 'dark' ? 'light' : 'dark');
 
@@ -18,13 +22,13 @@ const Navbar: FC = () => {
 				<span className={styles.header}>Portfolio</span>
 				<div className={styles.items}>
 					<Link href="/#projects">
-						<a>Projects</a>
+						<a>{t('nav.projects')}</a>
 					</Link>
 					<Link href="/contact">
-						<a>Contact</a>
+						<a>{t('nav.contact')}</a>
 					</Link>
 					<Link href="https://github.com/guusvanmeerveld/portfolio">
-						<a>Source code</a>
+						<a>{t('nav.github')}</a>
 					</Link>
 
 					<BiMoon onClick={switchTheme} className={styles.moon} />
@@ -33,6 +37,14 @@ const Navbar: FC = () => {
 			</div>
 		</nav>
 	);
+};
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+	const { default: lngDict = {} } = await import(`../locales/${locale}.json`);
+
+	return {
+		props: { lngDict },
+	};
 };
 
 export default Navbar;
