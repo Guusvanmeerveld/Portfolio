@@ -6,7 +6,8 @@
 			"@public/*": ["src/public/*"],
 			"@styles/*": ["src/styles/*"],
 			"@models/*": ["src/models/*"],
-			"@config/*": ["src/config/*"]
+			"@config/*": ["src/config/*"],
+			"@utils/*": ["src/utils/*"]
 		},
 		"target": "es5",
 		"lib": ["dom", "dom.iterable", "esnext"],

@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app';
 
 import 'milligram';
 import '@styles/raleway.css';
+import '@styles/roboto.css';
 
 import '@styles/globals.scss';
 

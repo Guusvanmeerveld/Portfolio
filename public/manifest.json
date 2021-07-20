@@ -11,6 +11,6 @@
 	"background_color": "#FFFFFF",
 	"display": "standalone",
 	"scope": "/",
-	"theme_color": "#9b4dca",
+	"theme_color": "#388e3c",
 	"description": "A simple portfolio website to display my projects."
 }
