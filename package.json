@@ -7,8 +7,7 @@
 		"build": "next build",
 		"start": "next start",
 		"prettify": "prettier --write .",
-		"lint": "eslint src",
-		"export": "next build && next export"
+		"lint": "eslint src"
 	},
 	"dependencies": {
 		"@types/luxon": "^1.27.1",

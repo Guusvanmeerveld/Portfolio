@@ -1,6 +1,8 @@
-import Page from 'src/components/Page';
-import Layout from 'src/components/Layout';
 import { NextPage } from 'next';
+import Link from 'next/link';
+
+import Page from '@components/Page';
+import Layout from '@components/Layout';
 
 const Thanks: NextPage = () => (
 	<Page title="Thanks!" description="Thanks for submitting your contact form!">
@@ -14,9 +16,9 @@ const Thanks: NextPage = () => (
 					</div>
 					<div className="header">Thank you!</div>
 					<div className="subtitle">Your submission is greatly appreciated!</div>
-					<a href="/" className="link button">
-						Go back
-					</a>
+					<Link href="/">
+						<a className="link button">Go back</a>
+					</Link>
 				</div>
 			</div>
 		</Layout>

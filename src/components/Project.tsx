@@ -1,3 +1,6 @@
+import Image from 'next/image';
+import Link from 'next/link';
+
 import { FC } from 'react';
 
 import ProjectType from '@models/project';
@@ -18,14 +21,14 @@ const Project: FC<ProjectComponent> = ({ name, description, buttons, cover, righ
 					<br />
 					<br />
 					{buttons.map((button, i) => (
-						<a href={button.link} className={styles.button + ' button'} key={i}>
-							{button.text}
-						</a>
+						<Link href={button.link} key={i}>
+							<a className={styles.button + ' button'}>{button.text}</a>
+						</Link>
 					))}
 				</div>
 				{cover ? (
 					<div className={styles.cover}>
-						<img src={`/assets/images/${cover}`} width="100%" height="100%" alt="" />
+						<Image src={`/assets/images/${cover}`} width={200} height={200} alt="" />
 					</div>
 				) : null}
 			</div>

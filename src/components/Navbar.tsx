@@ -1,4 +1,6 @@
 import { useTheme } from 'next-themes';
+import Link from 'next/link';
+
 import { BiMoon } from 'react-icons/bi';
 import { ImSun } from 'react-icons/im';
 
@@ -15,9 +17,15 @@ const Navbar: FC = () => {
 			<div className="container">
 				<span className={styles.header}>Portfolio</span>
 				<div className={styles.items}>
-					<a href="/#projects">Projects</a>
-					<a href="/contact">Contact</a>
-					<a href="https://github.com/guusvanmeerveld/portfolio">Source code</a>
+					<Link href="/#projects">
+						<a>Projects</a>
+					</Link>
+					<Link href="/contact">
+						<a>Contact</a>
+					</Link>
+					<Link href="https://github.com/guusvanmeerveld/portfolio">
+						<a>Source code</a>
+					</Link>
 
 					<BiMoon onClick={switchTheme} className={styles.moon} />
 					<ImSun onClick={switchTheme} className={styles.sun} />

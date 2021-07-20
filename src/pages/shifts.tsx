@@ -1,4 +1,6 @@
 import { NextPage } from 'next';
+import Link from 'next/link';
+
 import { Info, DateTime } from 'luxon';
 import useSWR from 'swr';
 
@@ -24,9 +26,11 @@ const Error: FC = () => (
 		<div className={styles.error}>
 			<h1>Error retrieving shift information</h1>
 			<button className="button">Retry</button>
-			<a href="/">
-				<button className="button">Go back</button>
-			</a>
+			<Link href="/">
+				<a>
+					<button className="button">Go back</button>
+				</a>
+			</Link>
 		</div>
 	</>
 );

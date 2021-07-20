@@ -1,5 +1,7 @@
 import { NextPage } from 'next';
 
+import Image from 'next/image';
+
 import Layout from '@components/Layout';
 import Page from '@components/Page';
 
@@ -14,14 +16,11 @@ const Home: NextPage = () => (
 			<div className={styles.body}>
 				<div className={styles.content + ' container'}>
 					<span className={styles.profile + ' profile'}>
-						<img src="/assets/images/profile.svg" width="100%" height="100%" alt="" />
+						<Image src="/assets/images/profile.svg" width={100} height={100} alt="" />
 					</span>
 
 					<span className={styles.title}>Guus van Meerveld</span>
-					<span className={styles.subtitle}>
-						TypeScript / Dart developer, <br />
-						currently working on Argo.
-					</span>
+					<span className={styles.subtitle}>Hi, I am a full stack web developer</span>
 
 					<a href="#projects" className="button d-block m-auto">
 						Check out my projects
