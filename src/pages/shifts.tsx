@@ -14,7 +14,7 @@ import Page from '@components/Page';
 
 import Shift from '@models/shifts';
 
-import styles from './Shifts.module.scss';
+import styles from './shifts.module.scss';
 
 interface APIResponse {
 	updated: Date;

@@ -16,35 +16,10 @@
 	--secondary: #1c1c1c;
 	--borders: #3c3838;
 	--foreground: rgb(236, 235, 235);
-
-	td,
-	th {
-		border-color: var(--borders);
-	}
 }
 
-body {
-	margin: 0;
-	background-color: var(--background);
-	color: var(--foreground);
-
-	font-family: 'Raleway';
-}
-
-a {
-	color: var(--primary);
-}
-
-.button {
-	background-color: var(--primary);
-	border-color: var(--primary);
-}
-
-input:focus,
-textarea:focus,
-select:focus,
-input[type='email']:focus {
-	border-color: var(--primary);
-}
-
-@import 'page.scss';
+@import './global/body.scss';
+@import './global/link.scss';
+@import './global/input.scss';
+@import './global/table.scss';
+@import './global/button.scss';

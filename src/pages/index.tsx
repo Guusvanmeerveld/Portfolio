@@ -10,7 +10,7 @@ import Page from '@components/Page';
 import Project from '@components/Project';
 import projects from '@config/projects.json';
 
-import styles from './Home.module.scss';
+import styles from './home.module.scss';
 
 const Home: NextPage = () => {
 	const { t } = useI18n();
@@ -20,12 +20,12 @@ const Home: NextPage = () => {
 			<Layout>
 				<div className={styles.body}>
 					<div className={styles.content + ' container'}>
-						<span className={styles.profile + ' profile'}>
+						<div className={styles.profile + ' profile'}>
 							<Image src="/assets/images/profile.svg" width={100} height={100} alt="" />
-						</span>
+						</div>
 
-						<span className={styles.title}>Guus van Meerveld</span>
-						<span className={styles.subtitle}>{t('pages.home.subtitle')}</span>
+						<h1>Guus van Meerveld</h1>
+						<h4 className={styles.subtitle}>{t('pages.home.subtitle')}</h4>
 
 						<a href="#projects" className="button">
 							{t('pages.home.projects.button')}
@@ -35,9 +35,9 @@ const Home: NextPage = () => {
 
 				<div className={styles.projects}>
 					<div className="container">
-						<div className={styles.header} id="projects">
-							Projects
-						</div>
+						<h1 className={styles.projectsHeader} id="projects">
+							{t('nav.projects')}
+						</h1>
 
 						{projects.map((project, i) => {
 							const props = { ...project, right: (i + 1) % 2 == 0 };

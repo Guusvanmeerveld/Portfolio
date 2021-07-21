@@ -5,13 +5,6 @@
 	padding-top: 4rem;
 }
 
-.input,
-.textarea {
-	border-color: var(--borders);
-	color: var(--foreground);
-	background-color: var(--secondary);
-}
-
 .textarea {
 	resize: none;
 	height: 10rem;

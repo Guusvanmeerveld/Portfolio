@@ -21,6 +21,11 @@ const Navbar: FC = () => {
 			<div className="container">
 				<span className={styles.header}>Portfolio</span>
 				<div className={styles.items}>
+					<select id="" className={styles.select}>
+						<option value="nl">NL</option>
+						<option value="en">EN</option>
+					</select>
+
 					<Link href="/#projects">
 						<a>{t('nav.projects')}</a>
 					</Link>
@@ -41,6 +46,8 @@ const Navbar: FC = () => {
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
 	const { default: lngDict = {} } = await import(`../locales/${locale}.json`);
+
+	console.log(lngDict);
 
 	return {
 		props: { lngDict },

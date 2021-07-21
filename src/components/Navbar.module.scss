@@ -10,6 +10,15 @@
 	width: 100%;
 }
 
+.select {
+	border-color: var(--borders);
+	color: var(--foreground);
+	background-color: var(--secondary);
+
+	width: 7.5rem;
+	margin-bottom: 0;
+}
+
 .header {
 	font-size: 1.75rem;
 }

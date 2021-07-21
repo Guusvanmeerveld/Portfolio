@@ -1,0 +1,7 @@
+input,
+textarea,
+select {
+	&:focus {
+		border-color: var(--primary);
+	}
+}

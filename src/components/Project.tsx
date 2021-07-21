@@ -16,10 +16,9 @@ const Project: FC<ProjectComponent> = ({ name, description, buttons, cover, righ
 		<div className={styles.body}>
 			<div className={styles.content}>
 				<div className={right ? styles.right : styles.info}>
-					<div className={styles.title}>{name}</div>
-					{description}
-					<br />
-					<br />
+					<h2>{name}</h2>
+					<div className={styles.description}>{description}</div>
+
 					{buttons.map((button, i) => (
 						<Link href={button.link} key={i}>
 							<a className={styles.button + ' button'}>{button.text}</a>
