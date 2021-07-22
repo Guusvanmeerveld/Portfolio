@@ -1,6 +1,8 @@
+@import '../styles/colors.scss';
+
 .body {
-	background-color: var(--secondary);
-	border-top: 0.1rem solid var(--borders);
+	background-color: $bg-secondary;
+	border-top: 0.1rem solid $borders;
 
 	padding: 3rem;
 }
@@ -20,9 +22,6 @@
 }
 
 .socialLink {
-	// color: var(--primary);
-	// cursor: pointer;
-
 	height: 3rem;
 	width: 3rem;
 	margin-right: 2rem;
