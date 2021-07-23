@@ -6,6 +6,8 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import Page from '@components/Page';
 import Layout from '@components/Layout';
 
+export { getStaticProps } from '../locales';
+
 import styles from './contact.module.scss';
 
 const formURL = 'https://forms.guusvanmeerveld.dev/portfolio';

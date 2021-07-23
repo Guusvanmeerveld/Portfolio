@@ -4,6 +4,8 @@ import Page from '@components/Page';
 import Layout from '@components/Layout';
 import PageBuilder from '@components/PageBuilder';
 
+export { getStaticProps } from '../locales';
+
 const NotFound: FC = () => (
 	<Page title="Page not found" description="This page either doesn't exist or has been deleted">
 		<Layout>

@@ -14,6 +14,8 @@ import Page from '@components/Page';
 
 import Shift from '@models/shifts';
 
+export { getStaticProps } from '../locales';
+
 import styles from './shifts.module.scss';
 
 interface APIResponse {

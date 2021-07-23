@@ -4,6 +4,8 @@ import Page from '@components/Page';
 import Layout from '@components/Layout';
 import PageBuilder from '@components/PageBuilder';
 
+export { getStaticProps } from '../locales';
+
 import styles from './thanks.module.scss';
 
 const Thanks: NextPage = () => (
