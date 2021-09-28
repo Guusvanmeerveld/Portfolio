@@ -1,0 +1,9 @@
+{
+	"title": "Thuis",
+	"description": "Een simpele portfolio website om mijn projecten te bekijken.",
+	"subtitle": "Hoi, Ik ben een full stack web developer",
+	"projects": {
+		"title": "Projecten",
+		"button": "Bekijk mijn projecten"
+	}
+}

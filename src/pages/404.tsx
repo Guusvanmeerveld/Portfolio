@@ -1,20 +1,29 @@
-import { FC } from 'react';
+import { GetStaticProps, NextPage } from 'next';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import Page from '@components/Page';
 import Layout from '@components/Layout';
 import PageBuilder from '@components/PageBuilder';
 
-export { getStaticProps } from '../locales';
+const NotFound: NextPage = () => {
+	const { t } = useTranslation('404');
 
-const NotFound: FC = () => (
-	<Page title="Page not found" description="This page either doesn't exist or has been deleted">
-		<Layout>
-			<PageBuilder
-				header="Not found"
-				subtitle="This page either doesn't exist or has been deleted"
-			/>
-		</Layout>
-	</Page>
-);
+	return (
+		<Page title={t('title')} description={t('description')}>
+			<Layout>
+				<PageBuilder button={t('back')} header={t('title')} subtitle={t('description')} />
+			</Layout>
+		</Page>
+	);
+};
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+	return {
+		props: {
+			...(await serverSideTranslations(locale, ['404', 'nav'])),
+		},
+	};
+};
 
 export default NotFound;

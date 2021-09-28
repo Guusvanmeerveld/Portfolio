@@ -1,8 +1,9 @@
 import { GetStaticProps, NextPage } from 'next';
 
-import { useI18n } from 'next-localization';
-
 import Image from 'next/image';
+
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import Layout from '@components/Layout';
 import Page from '@components/Page';
@@ -10,13 +11,13 @@ import Page from '@components/Page';
 import Project from '@components/Project';
 import projects from '@config/projects.json';
 
-import styles from './home.module.scss';
+import styles from './Index.module.scss';
 
 const Home: NextPage = () => {
-	const { t } = useI18n();
+	const { t } = useTranslation('home');
 
 	return (
-		<Page description={t('pages.home.description')} title={t('pages.home.title')}>
+		<Page description={t('description')} title={t('title')}>
 			<Layout>
 				<div className={styles.body}>
 					<div className={styles.content + ' container'}>
@@ -25,10 +26,10 @@ const Home: NextPage = () => {
 						</div>
 
 						<h1>Guus van Meerveld</h1>
-						<h4 className={styles.subtitle}>{t('pages.home.subtitle')}</h4>
+						<h4 className={styles.subtitle}>{t('subtitle')}</h4>
 
 						<a href="#projects" className="button">
-							{t('pages.home.projects.button')}
+							{t('projects.button')}
 						</a>
 					</div>
 				</div>
@@ -36,7 +37,7 @@ const Home: NextPage = () => {
 				<div className={styles.projects}>
 					<div className="container">
 						<h1 className={styles.projectsHeader} id="projects">
-							{t('nav.projects')}
+							{t('projects.title')}
 						</h1>
 
 						{projects.map((project, i) => {
@@ -51,10 +52,10 @@ const Home: NextPage = () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-	const { default: lngDict = {} } = await import(`../locales/${locale}.json`);
-
 	return {
-		props: { lngDict },
+		props: {
+			...(await serverSideTranslations(locale, ['home', 'nav'])),
+		},
 	};
 };
 

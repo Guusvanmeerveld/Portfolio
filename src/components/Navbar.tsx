@@ -1,30 +1,28 @@
-import { useI18n } from 'next-localization';
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
 
+import React, { ChangeEvent, FC } from 'react';
+
 import { BiMoon } from 'react-icons/bi';
 import { ImSun } from 'react-icons/im';
 
-import { FC } from 'react';
-
 import styles from './Navbar.module.scss';
+import { useTranslation } from 'next-i18next';
 
 const LanguageSelector: FC = () => {
 	const router = useRouter();
 
-	const path = router.pathname;
+	const locale = router.locale;
+
+	const updateLocale = (e: ChangeEvent<HTMLSelectElement>) => {
+		router.push('', '', { locale: e.target.value });
+	};
 
 	return (
-		<select className={styles.select} defaultValue={router.locale}>
+		<select className={styles.select} onChange={updateLocale} defaultValue={locale}>
 			{router.locales.map((locale) => (
-				<option
-					key={locale}
-					onClick={() => {
-						router.push(path, path, { locale });
-					}}
-					value={locale}
-				>
+				<option key={locale} value={locale}>
 					{locale.toUpperCase()}
 				</option>
 			))}
@@ -33,7 +31,7 @@ const LanguageSelector: FC = () => {
 };
 
 const Navbar: FC = () => {
-	const { t } = useI18n();
+	const { t } = useTranslation('nav');
 
 	const { theme, setTheme } = useTheme();
 	const switchTheme = (): void => setTheme(theme == 'dark' ? 'light' : 'dark');
@@ -42,16 +40,16 @@ const Navbar: FC = () => {
 		<nav className={styles.bar}>
 			<div className="container">
 				<div className={styles.content}>
-					<div className={styles.header}>Portfolio</div>
+					<div className={styles.header}>{t('title')}</div>
 					<div className={styles.items}>
 						<Link href="/#projects">
-							<a>{t('nav.projects')}</a>
+							<a>{t('projects')}</a>
 						</Link>
 						<Link href="/contact">
-							<a>{t('nav.contact')}</a>
+							<a>{t('contact')}</a>
 						</Link>
 						<Link href="https://github.com/guusvanmeerveld/portfolio">
-							<a>{t('nav.github')}</a>
+							<a>{t('github')}</a>
 						</Link>
 
 						<BiMoon onClick={switchTheme} className={styles.moon} />
