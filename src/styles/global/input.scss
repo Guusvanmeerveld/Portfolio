@@ -1,0 +1,18 @@
+input,
+textarea,
+select {
+	&:focus {
+		border-color: $primary !important;
+	}
+
+	color: $text;
+	border-color: $borders !important;
+
+	font-size: 1.5rem;
+}
+
+select {
+	&:focus {
+		background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%23388e3c" d="M0,0l6,8l6-8"/></svg>');
+	}
+}
