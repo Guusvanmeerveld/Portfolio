@@ -45,9 +45,9 @@ const Navbar: FC = () => {
 						<Link href="/#projects">
 							<a>{t('projects')}</a>
 						</Link>
-						<Link href="/contact">
+						{/* <Link href="/contact">
 							<a>{t('contact')}</a>
-						</Link>
+						</Link> */}
 						<Link href="https://github.com/guusvanmeerveld/portfolio">
 							<a>{t('github')}</a>
 						</Link>

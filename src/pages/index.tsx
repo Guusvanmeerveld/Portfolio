@@ -1,5 +1,7 @@
 import { GetStaticProps, NextPage } from 'next';
 
+import axios from 'axios';
+
 import Image from 'next/image';
 
 import { useTranslation } from 'next-i18next';
@@ -9,11 +11,11 @@ import Layout from '@components/Layout';
 import Page from '@components/Page';
 
 import Project from '@components/Project';
-import projects from '@config/projects.json';
+import ProjectModel from '@models/project';
 
 import styles from './Index.module.scss';
 
-const Home: NextPage = () => {
+const Home: NextPage<{ projects: ProjectModel[] }> = ({ projects }) => {
 	const { t } = useTranslation('home');
 
 	return (
@@ -52,9 +54,14 @@ const Home: NextPage = () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
+	const { data: projects } = await axios(
+		`https://${process.env.API_ENDPOINT}/portfolio/projects-${locale}.json`
+	);
+
 	return {
 		props: {
 			...(await serverSideTranslations(locale, ['home', 'nav'])),
+			projects,
 		},
 	};
 };

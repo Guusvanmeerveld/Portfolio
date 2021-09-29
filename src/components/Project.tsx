@@ -27,7 +27,12 @@ const Project: FC<ProjectComponent> = ({ name, description, buttons, cover, righ
 				</div>
 				{cover ? (
 					<div className={styles.cover}>
-						<Image src={`/assets/images/${cover}`} width={200} height={200} alt={name} />
+						<Image
+							src={`https://${process.env.API_ENDPOINT}/portfolio/${cover}`}
+							width={200}
+							height={200}
+							alt={name}
+						/>
 					</div>
 				) : null}
 			</div>
