@@ -8,9 +8,9 @@ const { i18n } = require('./next-i18next.config');
 module.exports = {
 	i18n,
 	images: {
-		domains: [process.env.API_ENDPOINT],
+		domains: [process.env.CDN_ENDPOINT],
 	},
 	env: {
-		API_ENDPOINT: process.env.API_ENDPOINT,
+		CDN_ENDPOINT: process.env.CDN_ENDPOINT,
 	},
 };

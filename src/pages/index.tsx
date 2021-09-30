@@ -1,6 +1,7 @@
 import { GetStaticProps, NextPage } from 'next';
 
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
+import chalk from 'chalk';
 
 import Image from 'next/image';
 
@@ -54,16 +55,36 @@ const Home: NextPage<{ projects: ProjectModel[] }> = ({ projects }) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-	const { data: projects } = await axios(
-		`https://${process.env.API_ENDPOINT}/portfolio/projects-${locale}.json`
-	);
+	const translation = await serverSideTranslations(locale, ['home', 'nav']);
 
-	return {
-		props: {
-			...(await serverSideTranslations(locale, ['home', 'nav'])),
-			projects,
-		},
-	};
+	const projects: ProjectModel[] | undefined = await axios(
+		`https://${process.env.CDN_ENDPOINT}/portfolio/projects-${locale}.json`
+	)
+		.then(({ data }) => {
+			console.log(
+				chalk`{magenta event} - retrieved projects from ` +
+					process.env.CDN_ENDPOINT +
+					' successfully'
+			);
+
+			return data;
+		})
+		.catch((error: AxiosError) => {
+			console.log(chalk`{red error} - failed to retrieve projects:`);
+
+			console.log(error.message);
+		});
+
+	if (projects) {
+		return {
+			props: {
+				...translation,
+				projects,
+			},
+		};
+	}
+
+	throw new Error('Failed to retrieve projects from ' + process.env.CDN_ENDPOINT);
 };
 
 export default Home;
