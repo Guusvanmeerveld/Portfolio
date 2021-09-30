@@ -1,0 +1,9 @@
+**
+
+!next-i18next.config.js
+!next.config.js
+!tsconfig.json
+!package.json
+!yarn.lock
+!public
+!src
