@@ -1,4 +1,4 @@
-name: build
+name: Build / test application and deploy to Docker hub & Github Pages
 
 on:
   push:
@@ -6,16 +6,16 @@ on:
       - main
 
 jobs:
-  test:
+  check:
     runs-on: ubuntu-latest
     steps:
       - name: Setup checkout
         uses: actions/checkout@v2
 
       - name: Setup NodeJS v12
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
-          node-version: 12
+          node-version: '12.x'
 
       - name: Install Dependencies
         run: yarn install
@@ -23,8 +23,31 @@ jobs:
       - name: ESlint check
         run: yarn lint
 
+  pages:
+    needs: check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Export website
+        run: yarn export
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+
   docker:
-    needs: test
+    needs: check
     runs-on: ubuntu-latest
     steps:
       - name: Setup checkout
