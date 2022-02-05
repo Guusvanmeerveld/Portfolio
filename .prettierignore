@@ -9,3 +9,4 @@ LICENSE
 .prettierrc
 .next
 next-env.d.ts
+out

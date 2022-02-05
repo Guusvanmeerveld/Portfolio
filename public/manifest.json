@@ -3,7 +3,7 @@
 	"name": "Guus van Meerveld's portfolio",
 	"icons": [
 		{
-			"src": "/assets/images/profile-192.png",
+			"src": "/favicon.ico",
 			"type": "image/png",
 			"sizes": "192x192"
 		}

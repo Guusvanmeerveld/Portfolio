@@ -1,16 +1,18 @@
 // @ts-check
 
-const { i18n } = require('./next-i18next.config');
-
 /**
  * @type {import('next').NextConfig}
  */
 module.exports = {
-	i18n,
 	images: {
-		domains: [process.env.CDN_ENDPOINT],
+		loader: 'imgix',
+		path: process.env.IMGIX_PATH ?? 'https://guusvanmeerveld.imgix.net',
 	},
 	env: {
 		CDN_ENDPOINT: process.env.CDN_ENDPOINT,
+	},
+	webpack: (config) => {
+		config.module.rules.push({ test: /\.svg$/, use: ['@svgr/webpack'] });
+		return config;
 	},
 };

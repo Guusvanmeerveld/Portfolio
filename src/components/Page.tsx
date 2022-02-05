@@ -16,7 +16,7 @@ const Page: FC<{
 			<meta name="description" content={description} />
 			<meta name="keywords" content="guus van meerveld argo magister tempo discord" />
 			<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-			<link rel="apple-touch-icon" sizes="192x192" href="/assets/images/profile-192.png" />
+			<link rel="apple-touch-icon" sizes="192x192" href="/favicon.ico" />
 		</Head>
 		{children}
 	</>

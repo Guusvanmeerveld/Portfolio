@@ -1,9 +1,10 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
 import { FaTwitter, FaYoutube, FaCoffee, FaGithub } from 'react-icons/fa';
 
 import { FC } from 'react';
+
+import { ProfileImage } from '@svg/index';
 
 import styles from './Footer.module.scss';
 
@@ -11,16 +12,10 @@ const Footer: FC = () => {
 	return (
 		<footer className={styles.body}>
 			<div className="container">
-				<Image
-					src="/assets/images/profile.svg"
-					width={50}
-					height={50}
-					alt=""
-					className={styles.profile + ' profile'}
-				/>
+				<ProfileImage className={styles.profile + ' profile'} width={50} height={50} />
 				<div className={styles.branding}>
 					Guus van Meerveld <br />
-					&#169; 2021
+					&#169; 2017 - {new Date().getFullYear()}
 				</div>
 				<div className={styles.socials}>
 					<Link passHref href="https://twitter.com/GuusvanMeerveld" aria-label="twitter link">

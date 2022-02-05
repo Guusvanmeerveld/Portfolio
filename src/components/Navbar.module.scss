@@ -21,9 +21,8 @@
 .header {
 	flex: 1;
 
-	// height: max-content;
-
-	font-size: 2rem;
+	display: flex;
+	align-items: center;
 }
 
 .select {

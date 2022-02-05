@@ -5,6 +5,7 @@
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
+		"export": "next build && next export",
 		"start": "next start",
 		"prettify": "prettier --write .",
 		"lint": "next lint"
@@ -20,9 +21,11 @@
 		"react-dom": "^17.0.2",
 		"react-icons": "^4.2.0",
 		"sass": "^1.42.1",
-		"sharp": "^0.29.1"
+		"sharp": "^0.29.1",
+		"swr": "^1.0.1"
 	},
 	"devDependencies": {
+		"@svgr/webpack": "^5.5.0",
 		"@types/node": "^15.6.1",
 		"@types/react": "^17.0.6",
 		"eslint": "^7.27.0",

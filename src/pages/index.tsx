@@ -3,36 +3,35 @@ import { GetStaticProps, NextPage } from 'next';
 import axios, { AxiosError } from 'axios';
 import chalk from 'chalk';
 
-import Image from 'next/image';
-
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
+import ProjectModel from '@models/project';
 
 import Layout from '@components/Layout';
 import Page from '@components/Page';
 
 import Project from '@components/Project';
-import ProjectModel from '@models/project';
+
+import { ProfileImage } from '@svg/index';
 
 import styles from './Index.module.scss';
 
 const Home: NextPage<{ projects: ProjectModel[] }> = ({ projects }) => {
-	const { t } = useTranslation('home');
-
 	return (
-		<Page description={t('description')} title={t('title')}>
+		<Page description="A simple portfolio website to display my projects." title="Home">
 			<Layout>
 				<div className={styles.body}>
 					<div className={styles.content + ' container'}>
-						<div className={styles.profile + ' profile'}>
-							<Image src="/assets/images/profile.svg" width={100} height={100} alt="" />
+						<div className={styles.profile}>
+							<ProfileImage height={100} width={100} className="profile" />
 						</div>
 
 						<h1>Guus van Meerveld</h1>
-						<h4 className={styles.subtitle}>{t('subtitle')}</h4>
+						<h4 className={styles.subtitle}>Full-stack developer</h4>
 
 						<a href="#projects" className="button">
-							{t('projects.button')}
+							Check out my projects
 						</a>
 					</div>
 				</div>
@@ -40,7 +39,7 @@ const Home: NextPage<{ projects: ProjectModel[] }> = ({ projects }) => {
 				<div className={styles.projects}>
 					<div className="container">
 						<h1 className={styles.projectsHeader} id="projects">
-							{t('projects.title')}
+							Projects
 						</h1>
 
 						{projects.map((project, i) => {
@@ -54,12 +53,9 @@ const Home: NextPage<{ projects: ProjectModel[] }> = ({ projects }) => {
 	);
 };
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
-	const translation = await serverSideTranslations(locale, ['home', 'nav']);
-
-	const projects: ProjectModel[] | undefined = await axios(
-		`https://${process.env.CDN_ENDPOINT}/portfolio/projects-${locale}.json`
-	)
+export const getStaticProps: GetStaticProps = async () => {
+	const projects: ProjectModel[] | undefined = await axios
+		.get(`https://${process.env.CDN_ENDPOINT}/portfolio/projects-en.json`)
 		.then(({ data }) => {
 			console.log(
 				chalk`{magenta event} - retrieved projects from ` +
@@ -78,7 +74,6 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 	if (projects) {
 		return {
 			props: {
-				...translation,
 				projects,
 			},
 		};

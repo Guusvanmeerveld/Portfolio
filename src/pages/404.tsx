@@ -7,23 +7,16 @@ import Layout from '@components/Layout';
 import PageBuilder from '@components/PageBuilder';
 
 const NotFound: NextPage = () => {
-	const { t } = useTranslation('404');
+	const title = 'Page not found';
+	const description = "This page either doesn't exist or has been deleted";
 
 	return (
-		<Page title={t('title')} description={t('description')}>
+		<Page title={title} description={description}>
 			<Layout>
-				<PageBuilder button={t('back')} header={t('title')} subtitle={t('description')} />
+				<PageBuilder button="Go back" header={title} subtitle={description} />
 			</Layout>
 		</Page>
 	);
-};
-
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
-	return {
-		props: {
-			...(await serverSideTranslations(locale, ['404', 'nav'])),
-		},
-	};
 };
 
 export default NotFound;

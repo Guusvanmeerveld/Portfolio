@@ -3,11 +3,10 @@
 		"baseUrl": "src",
 		"paths": {
 			"@components/*": ["components/*"],
-			
+			"@svg/*": ["svg/*"],
 			"@styles/*": ["styles/*"],
 			"@models/*": ["models/*"],
 			"@config/*": ["config/*"],
-			"@utils/*": ["utils/*"],
 			"@src/*": ["./*"]
 		},
 		"target": "es5",
