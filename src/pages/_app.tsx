@@ -2,8 +2,6 @@ import { ThemeProvider } from 'next-themes';
 
 import type { AppProps } from 'next/app';
 
-import { appWithTranslation } from 'next-i18next';
-
 import 'milligram';
 
 import '@styles/montserrat.css';
@@ -18,4 +16,4 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 	);
 };
 
-export default appWithTranslation(App);
+export default App;
