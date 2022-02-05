@@ -6,7 +6,7 @@
 module.exports = {
 	images: {
 		loader: 'imgix',
-		path: process.env.IMGIX_PATH ?? 'https://guusvanmeerveld.imgix.net',
+		path: process.env.IMGIX_PATH || 'https://guusvanmeerveld.imgix.net',
 	},
 	env: {
 		CDN_ENDPOINT: process.env.CDN_ENDPOINT,
