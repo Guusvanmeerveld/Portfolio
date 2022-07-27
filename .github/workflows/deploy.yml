@@ -1,88 +1,42 @@
-name: Build / test application and deploy to Docker hub & Github Pages
+name: "Deploy website"
 
 on:
   push:
     branches:
       - main
+    paths:
+      - src/**
+      - package.json
+      - yarn.lock
+      - tsconfig.*
+      - vite.config.ts
+      - .env
+      - index.html
+      - public
 
 jobs:
-  check:
+  deploy_to_pages:
+    name: Build pages
     runs-on: ubuntu-latest
     steps:
-      - name: Setup checkout
+      - name: Setup
         uses: actions/checkout@v2
 
-      - name: Setup NodeJS v12
+      - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '12.x'
+          node-version: "16.x"
+          cache: "yarn"
 
-      - name: Install Dependencies
+      - name: Install NPM dependencies
         run: yarn install
 
-      - name: ESlint check
-        run: yarn lint
+      - name: Build client
+        run: yarn run build
 
-  pages:
-    needs: check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Use Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '12.x'
-
-      - name: Install dependencies
-        run: yarn install
-
-      - name: Export website
-        run: yarn export
-        env:
-          GITHUB_USERNAME: ${{ GITHUB_REPOSITORY_OWNER }}
-
-      - name: Create .nojekyll file
-        run: touch out/.nojekyll
-
-      - name: Deploy
+      - name: Deploy to pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: out
-
-  docker:
-    needs: check
-    runs-on: ubuntu-latest
-    steps:
-      - name: Setup checkout
-        uses: actions/checkout@v2
-
-      - name: Login to Docker Hub
-        uses: docker/login-action@v1.10.0
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-
-      - name: Cache Docker layers
-        uses: actions/cache@v2
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-
-
-      - name: Build and push
-        uses: docker/build-push-action@v2
-        with:
-          push: true
-          tags: guusvanmeerveld/portfolio:latest
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache
-          builder: ${{ steps.buildx.outputs.name }}
-
-      - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
+          publish_dir: ./dist
+          cname: guusvanmeerveld.dev

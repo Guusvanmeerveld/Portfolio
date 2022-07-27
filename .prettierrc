@@ -1,9 +1,27 @@
 {
-    "trailingComma": "es5",
-    "useTabs": true,
-    "semi": true,
-    "singleQuote": true,
-    "tabWidth": 2,
-    "printWidth": 100,
-    "arrowParens": "always"
+	"trailingComma": "none",
+	"useTabs": true,
+	"semi": true,
+	"printWidth": 80,
+	"arrowParens": "always",
+	"importOrderSeparation": true,
+	"importOrder": [
+		"@rollup/.*",
+		"rollup-.*",
+		"^..?/.*",
+		"^use-local-storage-state$",
+		"^styled-components$",
+		"^react.*",
+		"^preact$",
+		"^preact.*",
+		"^axios.*",
+		"^@src/.*",
+		"^@models/.*",
+		"^@interfaces/.*",
+		"^@styles/.*",
+		"^@shared/.*",
+		"^@utils/.*",
+		"^@components/.*",
+		"^@svg/.*"
+	]
 }

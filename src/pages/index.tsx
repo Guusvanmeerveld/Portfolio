@@ -1,85 +1,147 @@
-import { GetStaticProps, NextPage } from 'next';
+import useLocalStorageState from "use-local-storage-state";
 
-import axios, { AxiosError } from 'axios';
-import chalk from 'chalk';
+import styled, { DefaultTheme } from "styled-components";
 
-import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import { animated, useSpring } from "react-spring";
 
-import ProjectModel from '@models/project';
+import { FunctionalComponent } from "preact";
 
-import Layout from '@components/Layout';
-import Page from '@components/Page';
+import socials from "@utils/socials";
 
-import Project from '@components/Project';
+import Dots from "@components/Dots";
+import Header from "@components/Header";
+import Image from "@components/Image";
+import Layout from "@components/Layout";
+import Paragraph from "@components/Paragraph";
+import ProjectsList from "@components/Project/List";
 
-import { ProfileImage } from '@svg/index';
+const Presentation = styled.div`
+	height: 100vh;
 
-import styles from './Index.module.scss';
+	display: flex;
+	align-items: center;
+`;
 
-const Home: NextPage<{ projects: ProjectModel[] }> = ({ projects }) => {
+const Projects = styled.div`
+	margin-top: 5rem;
+	padding: 5rem 0;
+`;
+
+const Hero = styled.div`
+	/* background-color: ${({ theme }: { theme: DefaultTheme }) =>
+		theme.palette.background.secondary}; */
+	justify-content: ${(props) => (props.right ? "right" : "left")};
+	display: flex;
+	align-items: center;
+	height: 100%;
+`;
+
+const Logo = styled.div`
+	margin: 2rem 0;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+`;
+
+const ProjectsHeader = styled(Header)`
+	text-align: center;
+	margin-bottom: 5rem;
+`;
+
+const IconsTray = styled.div`
+	display: flex;
+	justify-content: right;
+	margin-top: 1rem;
+`;
+
+const Icon = styled.div`
+	margin-left: 1.5rem;
+	font-size: 2rem;
+`;
+
+const Index: FunctionalComponent = () => {
+	const [darkMode] = useLocalStorageState("darkMode");
+
+	const fadeIn = useSpring({
+		to: { opacity: 1 },
+		from: { opacity: 0 },
+		config: {
+			mass: 5
+		}
+	});
+
 	return (
-		<Page description="A simple portfolio website to display my projects." title="Home">
-			<Layout>
-				<div className={styles.body}>
-					<div className={styles.content + ' container'}>
-						<div className={styles.profile}>
-							<ProfileImage height={100} width={100} className="profile" />
-						</div>
+		<Layout>
+			<Presentation>
+				<Container>
+					<animated.div style={fadeIn}>
+						<Row>
+							<Col md={8}>
+								<Hero>
+									<div>
+										<Header gutter>Welcome</Header>
+										<Paragraph gutter>
+											My name is Guus van Meerveld, and I am a web developer.
+										</Paragraph>
+										<Paragraph>
+											This is my portfolio website, to showcase my projects.
+										</Paragraph>
+									</div>
+								</Hero>
+							</Col>
+							<Col md={4}>
+								<Dots />
+							</Col>
+						</Row>
+						<Row>
+							<Logo>
+								<Image
+									// onClick={() => setDarkMode(!darkMode)}
+									// style={{ cursor: "pointer" }}
+									height={64}
+									src={darkMode ? "logo-dark.png" : "logo-light.png"}
+									alt=""
+								/>
+							</Logo>
+						</Row>
+						<Row>
+							<Col md={4}>
+								<Dots left />
+							</Col>
+							<Col md={8}>
+								<Hero right>
+									<div>
+										<Header>Follow me:</Header>
+										<IconsTray>
+											{socials.map((social) => (
+												<Icon>
+													<a href={social.url}>{social.icon}</a>
+												</Icon>
+											))}
+										</IconsTray>
+									</div>
+								</Hero>
+							</Col>
+						</Row>
+					</animated.div>
+				</Container>
+			</Presentation>
 
-						<h1>Guus van Meerveld</h1>
-						<h4 className={styles.subtitle}>Full-stack developer</h4>
-
-						<a href="#projects" className="button">
-							Check out my projects
-						</a>
-					</div>
-				</div>
-
-				<div className={styles.projects}>
-					<div className="container">
-						<h1 className={styles.projectsHeader} id="projects">
-							Projects
-						</h1>
-
-						{projects.map((project, i) => {
-							const props = { ...project, right: (i + 1) % 2 == 0 };
-							return <Project key={project.name} {...props} />;
-						})}
-					</div>
-				</div>
-			</Layout>
-		</Page>
+			<Projects>
+				<Container>
+					<Row>
+						<ProjectsHeader>Projects</ProjectsHeader>
+					</Row>
+					<Row>
+						<ProjectsList />
+					</Row>
+				</Container>
+			</Projects>
+		</Layout>
 	);
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-	const projects: ProjectModel[] | undefined = await axios
-		.get(`https://${process.env.CDN_ENDPOINT}/portfolio/projects-en.json`)
-		.then(({ data }) => {
-			console.log(
-				chalk`{magenta event} - retrieved projects from ` +
-					process.env.CDN_ENDPOINT +
-					' successfully'
-			);
-
-			return data;
-		})
-		.catch((error: AxiosError) => {
-			console.log(chalk`{red error} - failed to retrieve projects:`);
-
-			console.log(error.message);
-		});
-
-	if (projects) {
-		return {
-			props: {
-				projects,
-			},
-		};
-	}
-
-	throw new Error('Failed to retrieve projects from ' + process.env.CDN_ENDPOINT);
-};
-
-export default Home;
+export default Index;

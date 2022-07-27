@@ -1,14 +1,14 @@
-import { FC } from 'react';
+import { FunctionalComponent } from "preact";
 
-import Navbar from '@components/Navbar';
-import Footer from '@components/Footer';
+import Footer from "@components/Footer";
 
-const Layout: FC<{ children: JSX.Element | JSX.Element[] }> = ({ children }) => (
-	<>
-		<Navbar />
-		{children}
-		<Footer />
-	</>
-);
+const Layout: FunctionalComponent = ({ children }) => {
+	return (
+		<>
+			{children}
+			<Footer />
+		</>
+	);
+};
 
 export default Layout;

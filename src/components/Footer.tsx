@@ -1,50 +1,61 @@
-import Link from 'next/link';
+import styled, { DefaultTheme } from "styled-components";
 
-import { FaTwitter, FaYoutube, FaCoffee, FaGithub } from 'react-icons/fa';
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 
-import { FC } from 'react';
+import { FunctionalComponent } from "preact";
 
-import { ProfileImage } from '@svg/index';
+import socials from "@utils/socials";
 
-import styles from './Footer.module.scss';
+import Header from "@components/Header";
 
-const Footer: FC = () => {
+const Body = styled.div`
+	background-color: ${({ theme }: { theme: DefaultTheme }) =>
+		theme.palette.background.secondary};
+
+	border-top: 2px solid
+		${({ theme }: { theme: DefaultTheme }) => theme.palette.border};
+	padding: 2rem;
+`;
+
+const ListHeader = styled(Header)`
+	font-size: 2rem;
+`;
+
+const ListItem = styled.li`
+	font-size: 1.25rem;
+	margin-top: 1rem;
+`;
+
+const ListItemIcon = styled.span`
+	margin-right: 1rem;
+`;
+
+const Footer: FunctionalComponent = () => {
 	return (
-		<footer className={styles.body}>
-			<div className="container">
-				<ProfileImage className={styles.profile + ' profile'} width={50} height={50} />
-				<div className={styles.branding}>
-					Guus van Meerveld <br />
-					&#169; 2017 - {new Date().getFullYear()}
-				</div>
-				<div className={styles.socials}>
-					<Link passHref href="https://twitter.com/GuusvanMeerveld" aria-label="twitter link">
-						<a>
-							<FaTwitter className={styles.socialLink} />
-						</a>
-					</Link>
-					<Link
-						passHref
-						href="https://www.youtube.com/channel/UCYuqpoMay5SezCBrA_HKVWQ"
-						aria-label="youtube link"
-					>
-						<a>
-							<FaYoutube className={styles.socialLink} />
-						</a>
-					</Link>
-					<Link passHref href="https://ko-fi.com/guusvanmeerveld" aria-label="kofi link">
-						<a>
-							<FaCoffee className={styles.socialLink} />
-						</a>
-					</Link>
-					<Link passHref href="https://github.com/guusvanmeerveld" aria-label="github link">
-						<a>
-							<FaGithub className={styles.socialLink} />
-						</a>
-					</Link>
-				</div>
-			</div>
-		</footer>
+		<Body>
+			<Container>
+				<Row>
+					<Col md={4}>
+						<Header gutter>Guus van Meerveld</Header>
+					</Col>
+					<Col md={4}>
+						<ul>
+							<ListHeader>Socials</ListHeader>
+							{socials.map((social) => (
+								<ListItem>
+									<a href={social.url}>
+										<ListItemIcon>{social.icon}</ListItemIcon>
+										{social.name}
+									</a>
+								</ListItem>
+							))}
+						</ul>
+					</Col>
+				</Row>
+			</Container>
+		</Body>
 	);
 };
 
