@@ -1,4 +1,4 @@
-export default interface Repo {
+export interface GithubAPIRepository {
 	id: number;
 	node_id: string;
 	name: string;
@@ -6,7 +6,7 @@ export default interface Repo {
 	private: boolean;
 	owner: Owner;
 	html_url: string;
-	description: string;
+	description: null | string;
 	fork: boolean;
 	url: string;
 	forks_url: string;
@@ -52,11 +52,11 @@ export default interface Repo {
 	ssh_url: string;
 	clone_url: string;
 	svn_url: string;
-	homepage: string;
+	homepage: null | string;
 	size: number;
 	stargazers_count: number;
 	watchers_count: number;
-	language: string;
+	language: null | string;
 	has_issues: boolean;
 	has_projects: boolean;
 	has_downloads: boolean;
@@ -67,7 +67,7 @@ export default interface Repo {
 	archived: boolean;
 	disabled: boolean;
 	open_issues_count: number;
-	license: License;
+	license: License | null;
 	allow_forking: boolean;
 	is_template: boolean;
 	web_commit_signoff_required: boolean;
@@ -77,9 +77,6 @@ export default interface Repo {
 	open_issues: number;
 	watchers: number;
 	default_branch: string;
-	temp_clone_token: null;
-	network_count: number;
-	subscribers_count: number;
 }
 
 export interface License {
@@ -109,4 +106,19 @@ export interface Owner {
 	received_events_url: string;
 	type: string;
 	site_admin: boolean;
+}
+
+export interface RecentRepository {
+	name: string;
+	description: string;
+	url: string;
+	homepage?: string;
+	stargazers_count: number;
+}
+
+export interface BestRepository extends RecentRepository {
+	forks_count: number;
+	language: string;
+	open_issues_count: number;
+	pushed_at: Date;
 }

@@ -1,0 +1,66 @@
+[data-theme="dark"] {
+
+    body {
+        background-color: $bg-dark;
+        color: $text-primary;
+    }
+
+    .empty {
+        background-color: $dark-color-secondary;
+        color: $text-primary;
+    }
+
+    .card {
+        background-color: $bg-dark;
+    }
+
+    a:hover {
+        color: $primary-color-dark;
+    }
+
+    a {
+        color: $primary-color;
+    }
+
+    .text-primary {
+        color: $primary-color !important;
+    }
+
+    .bg-primary {
+        background-color: $primary-color !important;
+    }
+
+    .btn {
+        background-color: $bg-dark-secondary;
+        color: $primary-color;
+
+        border-color: $primary-color;
+
+        &:hover {
+            border-color: $primary-color;
+        }
+
+        &:focus {
+            border-color: $primary-color;
+        }
+    }
+
+    .btn-primary {
+        background-color: $primary-color;
+        border-color: $primary-color;
+
+        color: $text-primary;
+
+        &:hover {
+            background-color: $primary-color-dark;
+            border-color: $primary-color-dark;
+        }
+
+        &:focus {
+            background-color: $primary-color-dark;
+            border-color: $primary-color-dark;
+        }
+    }
+
+
+}

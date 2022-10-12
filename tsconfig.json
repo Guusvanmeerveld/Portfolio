@@ -1,30 +1,29 @@
 {
 	"compilerOptions": {
-		"target": "ESNext",
-		"useDefineForClassFields": true,
-		"lib": ["DOM", "DOM.Iterable", "ESNext"],
-		"allowJs": false,
+		"target": "es5",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
 		"skipLibCheck": true,
-		"esModuleInterop": false,
-		"allowSyntheticDefaultImports": true,
 		"strict": true,
 		"forceConsistentCasingInFileNames": true,
-		"module": "ESNext",
-		"moduleResolution": "Node",
+		"noEmit": true,
+		"esModuleInterop": true,
+		"module": "esnext",
+		"moduleResolution": "node",
 		"resolveJsonModule": true,
 		"isolatedModules": true,
-		"noEmit": true,
-		"paths": {
-			"@components/*": ["./src/components/*"],
-			"@interfaces/*": ["./src/interfaces/*"],
-			"@utils/*": ["./src/utils/*"],
-			"react": ["./node_modules/preact/compat/"],
-			"react-dom": ["./node_modules/preact/compat/"]
-		},
 		"jsx": "preserve",
-		"jsxFactory": "h",
-		"jsxFragmentFactory": "Fragment"
+		"incremental": true,
+		"tsBuildInfoFile": ".next/tsbuildinfo.json",
+		"baseUrl": "src",
+		"paths": {
+			"@styles/*": ["styles/*"],
+			"@components/*": ["components/*"],
+			"@interfaces/*": ["interfaces/*"],
+			"@utils/*": ["utils/*"],
+			"@src/*": ["src/*"]
+		}
 	},
-	"include": ["src"],
-	"references": [{ "path": "./tsconfig.node.json" }]
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+	"exclude": ["node_modules"]
 }

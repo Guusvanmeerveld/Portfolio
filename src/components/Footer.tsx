@@ -1,61 +1,51 @@
-import styled, { DefaultTheme } from "styled-components";
+import { FC } from "react";
 
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
+import Link from "next/link";
 
-import { FunctionalComponent } from "preact";
+import multipleClassNames from "@utils/multipleClassNames";
 
-import socials from "@utils/socials";
+import styles from "./footer.module.scss";
 
-import Header from "@components/Header";
-
-const Body = styled.div`
-	background-color: ${({ theme }: { theme: DefaultTheme }) =>
-		theme.palette.background.secondary};
-
-	border-top: 2px solid
-		${({ theme }: { theme: DefaultTheme }) => theme.palette.border};
-	padding: 2rem;
-`;
-
-const ListHeader = styled(Header)`
-	font-size: 2rem;
-`;
-
-const ListItem = styled.li`
-	font-size: 1.25rem;
-	margin-top: 1rem;
-`;
-
-const ListItemIcon = styled.span`
-	margin-right: 1rem;
-`;
-
-const Footer: FunctionalComponent = () => {
+const Footer: FC = () => {
 	return (
-		<Body>
-			<Container>
-				<Row>
-					<Col md={4}>
-						<Header gutter>Guus van Meerveld</Header>
-					</Col>
-					<Col md={4}>
-						<ul>
-							<ListHeader>Socials</ListHeader>
-							{socials.map((social) => (
-								<ListItem>
-									<a href={social.url}>
-										<ListItemIcon>{social.icon}</ListItemIcon>
-										{social.name}
-									</a>
-								</ListItem>
-							))}
-						</ul>
-					</Col>
-				</Row>
-			</Container>
-		</Body>
+		<footer className={multipleClassNames("container", styles.main)}>
+			<div className="columns">
+				<div className="column col-8 col-mx-auto">
+					<h3>Guus van Meerveld</h3>
+					<div className="columns mb-2">
+						<div className="column col-12">
+							<Link
+								href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`}
+							>
+								<a className="mr-2">Github</a>
+							</Link>
+							&middot;
+							<Link href="https://twitter.com/Guusvanmeerveld">
+								<a className="mx-2">Twitter</a>
+							</Link>
+							&middot;
+							<Link href="https://ko-fi.com/Guusvanmeerveld">
+								<a className="mx-2">Ko-fi</a>
+							</Link>
+							&middot;
+							<Link href="https://youtube.com/channel/UCYuqpoMay5SezCBrA_HKVWQ">
+								<a className="mx-2">Youtube</a>
+							</Link>
+						</div>
+					</div>
+					<p>
+						Built with{" "}
+						<span role="img" aria-label="heart emoji">
+							❤️
+						</span>{" "}
+						by Guus van Meerveld, using{" "}
+						<Link href="https://picturepan2.github.io/spectre">
+							<a>Spectre.css</a>
+						</Link>
+					</p>
+				</div>
+			</div>
+		</footer>
 	);
 };
 

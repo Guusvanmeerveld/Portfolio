@@ -1,0 +1,13 @@
+$light-color: #eee;
+$dark-color: #212121;
+$primary-color: #7e57c2;
+
+$dark-color-secondary: lighten($dark-color, 2%);
+
+$primary-color-dark: darken($primary-color, 10%);
+
+$bg-dark: $dark-color;
+$bg-dark-secondary: $dark-color-secondary;
+
+$text-primary: $light-color;
+$text-secondary: darken($light-color, 10%);
