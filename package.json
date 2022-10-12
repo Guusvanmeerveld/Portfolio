@@ -14,7 +14,7 @@
 		"axios": "^1.1.2",
 		"configcat-node": "^8.0.0",
 		"next": "^12.1.0",
-		"next-seo": "^4.24.0",
+		"next-seo": "^5.5.0",
 		"next-themes": "^0.2.1",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
