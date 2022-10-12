@@ -9,7 +9,7 @@ const BestRepository: FC<{ repository: BestRepository }> = ({ repository }) => {
 		<div className="hero bg-primary">
 			<div className="container">
 				<div className="columns">
-					<div className="column col-8 col-mx-auto">
+					<div className="column col-8 col-md-12 col-mx-auto">
 						<h3 className="text-secondary">My most popular project:</h3>
 						<h1>{repository.name}</h1>
 						<h3 className="text-secondary">

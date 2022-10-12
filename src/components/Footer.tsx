@@ -10,7 +10,7 @@ const Footer: FC = () => {
 	return (
 		<footer className={multipleClassNames("container", styles.main)}>
 			<div className="columns">
-				<div className="column col-8 col-mx-auto">
+				<div className="column col-8 col-md-12 col-mx-auto">
 					<h3>Guus van Meerveld</h3>
 					<div className="columns mb-2">
 						<div className="column col-12">

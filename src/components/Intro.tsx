@@ -7,7 +7,7 @@ const Intro: FC<{ isAvailable: boolean }> = ({ isAvailable }) => {
 		<div className={styles.main}>
 			<div className="container">
 				<div className="columns">
-					<div className="column col-8 col-mx-auto text-center">
+					<div className="column col-8 col-md-12 col-mx-auto text-center">
 						<h1>Guus van Meerveld</h1>
 
 						<h3>
