@@ -3,6 +3,7 @@ import { FC } from "react";
 import Link from "next/link";
 
 import multipleClassNames from "@utils/multipleClassNames";
+import { giteaServerUrl, giteaUsername } from "@utils/config";
 
 import styles from "./footer.module.scss";
 
@@ -14,10 +15,8 @@ const Footer: FC = () => {
 					<h3>Guus van Meerveld</h3>
 					<div className="columns mb-2">
 						<div className="column col-12">
-							<Link
-								href={`https://github.com/${process.env.NEXT_PUBLIC_GITHUB_USERNAME}`}
-							>
-								<a className="mr-2">Github</a>
+							<Link href={`https://${giteaServerUrl}/${giteaUsername}`}>
+								<a className="mr-2">Git</a>
 							</Link>
 							&middot;
 							<Link href="https://twitter.com/Guusvanmeerveld">
