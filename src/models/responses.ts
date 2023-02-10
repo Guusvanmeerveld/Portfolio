@@ -9,6 +9,7 @@ export const RepositoryResponse = z.object({
 	updated_at: z.string(),
 	forks_count: z.number(),
 	open_issues_count: z.number(),
+	stars_count: z.number(),
 	description: z.string(),
 	size: z.number()
 });

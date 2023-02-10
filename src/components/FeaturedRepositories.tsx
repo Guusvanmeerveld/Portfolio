@@ -1,6 +1,8 @@
 import z from "zod";
 import { FC } from "react";
 
+import { format as formatTimeAgo } from "timeago.js";
+
 import Link from "next/link";
 
 import multipleClassNames from "@utils/multipleClassNames";
@@ -40,13 +42,14 @@ const FeaturedRepositories: FC<{
 												{repository.full_name}
 											</div>
 											<div className="card-subtitle text-gray">
-												{repository.size} bytes
+												{(repository.size / 1024).toPrecision(2)} MB - Last
+												updated {formatTimeAgo(repository.updated_at, "en_US")}
 											</div>
 										</div>
 										<div className="card-body">{repository.description}</div>
 										<div className="card-footer">
 											<Link href={repository.html_url}>
-												<a className="btn btn-primary">Github</a>
+												<a className="btn btn-primary">Git</a>
 											</Link>
 
 											{repository.website && (

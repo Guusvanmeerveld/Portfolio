@@ -3,6 +3,8 @@ import Link from "next/link";
 import { FC } from "react";
 import z from "zod";
 
+import { format as formatTimeAgo } from "timeago.js";
+
 import { RepositoryResponse } from "@models/responses";
 
 const BestRepository: FC<{ repository: z.infer<typeof RepositoryResponse> }> =
@@ -14,7 +16,7 @@ const BestRepository: FC<{ repository: z.infer<typeof RepositoryResponse> }> =
 						<div className="column col-8 col-md-12 col-mx-auto">
 							<h3 className="text-secondary">My most popular project:</h3>
 							<h1>{repository.full_name}</h1>
-							<h3 className="text-secondary">{repository.size} byes</h3>
+
 							<h5>{repository.description}</h5>
 							<p className="text-secondary">
 								Written in {repository.language}, has{" "}
@@ -34,8 +36,7 @@ const BestRepository: FC<{ repository: z.infer<typeof RepositoryResponse> }> =
 							</p>
 
 							<h5 className="text-secondary">
-								Last commit on{" "}
-								{new Date(repository.updated_at).toLocaleDateString()}
+								Last updated {formatTimeAgo(repository.updated_at, "en_US")}
 							</h5>
 						</div>
 					</div>

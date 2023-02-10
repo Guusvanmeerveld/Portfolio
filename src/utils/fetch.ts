@@ -40,7 +40,8 @@ export const fetchRepositories = async (
 			params: {
 				topic: true,
 				q: "on-portfolio",
-				id: giteaUserUid
+				id: giteaUserUid,
+				limit: 6
 			}
 		}
 	);
