@@ -1,21 +1,22 @@
+import z from "zod";
 import { FC } from "react";
 
 import Link from "next/link";
 
-import { RecentRepository } from "@interfaces/repository";
-
 import multipleClassNames from "@utils/multipleClassNames";
+
+import { RepositoryResponse } from "@models/responses";
 
 import styles from "./repositories.module.scss";
 
-const RecentRepositories: FC<{ repositories: RecentRepository[] }> = ({
-	repositories
-}) => {
+const FeaturedRepositories: FC<{
+	repositories: z.infer<typeof RepositoryResponse>[];
+}> = ({ repositories }) => {
 	return (
 		<div className={multipleClassNames("container", styles.main)}>
 			<div className="columns">
 				<div className="column col-6 col-mx-auto text-center">
-					<h3>Some of my recent projects:</h3>
+					<h3>Some of my featured projects:</h3>
 				</div>
 			</div>
 			<div className="columns">
@@ -24,7 +25,7 @@ const RecentRepositories: FC<{ repositories: RecentRepository[] }> = ({
 						{repositories.map((repository) => {
 							return (
 								<div
-									key={repository.name}
+									key={repository.full_name}
 									className="column col-3 col-md-12 col-mx-auto mb-2"
 								>
 									<div
@@ -35,19 +36,21 @@ const RecentRepositories: FC<{ repositories: RecentRepository[] }> = ({
 										)}
 									>
 										<div className="card-header text-primary">
-											<div className="card-title h5">{repository.name}</div>
+											<div className="card-title h5">
+												{repository.full_name}
+											</div>
 											<div className="card-subtitle text-gray">
-												{repository.stargazers_count} Star(s)
+												{repository.size} bytes
 											</div>
 										</div>
 										<div className="card-body">{repository.description}</div>
 										<div className="card-footer">
-											<Link href={repository.url}>
+											<Link href={repository.html_url}>
 												<a className="btn btn-primary">Github</a>
 											</Link>
 
-											{repository.homepage && (
-												<Link href={repository.homepage}>
+											{repository.website && (
+												<Link href={repository.website}>
 													<a className="btn btn-primary ml-2">Website</a>
 												</Link>
 											)}
@@ -63,4 +66,4 @@ const RecentRepositories: FC<{ repositories: RecentRepository[] }> = ({
 	);
 };
 
-export default RecentRepositories;
+export default FeaturedRepositories;
