@@ -7,6 +7,7 @@ steps:
     image: node:16-alpine
     commands:
       - yarn install
+      - yarn run prisma:generate
       - yarn lint
       - yarn test-build
 

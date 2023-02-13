@@ -4,6 +4,7 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
+		"prisma:generate": "prisma generate",
 		"export": "next build && next export",
 		"test-build": "tsc",
 		"lint": "next lint",
