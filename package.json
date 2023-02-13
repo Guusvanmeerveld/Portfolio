@@ -5,6 +5,7 @@
 		"build": "next build",
 		"start": "next start",
 		"prisma:generate": "prisma generate",
+		"start:migrate": "prisma migrate deploy && yarn run start",
 		"export": "next build && next export",
 		"test-build": "tsc",
 		"lint": "next lint",

@@ -31,4 +31,4 @@ USER nextjs
 
 EXPOSE 3000
 
-CMD ["yarn", "start"]
+CMD ["yarn", "run", "start:migrate"]
