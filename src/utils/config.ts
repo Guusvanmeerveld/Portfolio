@@ -16,7 +16,7 @@ export const sessionOptions = {
 };
 
 export const registrationIsEnabled = process.env.ALLOW_REGISTRATION
-	? process.env.ALLOW_REGISTRATION == "true"
+	? process.env.NEXT_PUBLIC_ALLOW_REGISTRATION == "true"
 	: false;
 
 export const saltRoundsForPassword =
