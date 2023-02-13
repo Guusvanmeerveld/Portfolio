@@ -8,9 +8,7 @@ import multipleClassNames from "@utils/multipleClassNames";
 import styles from "./login.module.scss";
 import { registrationIsEnabled } from "@utils/config";
 
-const Login: NextPage<{ registrationIsEnabled: boolean }> = ({
-	registrationIsEnabled
-}) => {
+const Login: NextPage = () => {
 	return (
 		<Layout>
 			<NextSeo title="Login" />
@@ -128,10 +126,6 @@ const Login: NextPage<{ registrationIsEnabled: boolean }> = ({
 			</div>
 		</Layout>
 	);
-};
-
-export const getStaticProps: GetStaticProps = async () => {
-	return { props: { registrationIsEnabled } };
 };
 
 export default Login;
