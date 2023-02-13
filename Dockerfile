@@ -1,17 +1,18 @@
-FROM node:alpine AS deps
+FROM node:lts-alpine AS deps
 
 WORKDIR /app
-COPY package.json yarn.lock ./
+COPY package.json yarn.lock prisma ./
+RUN npx prisma generate
 RUN yarn install --frozen-lockfile
 
-FROM node:alpine AS builder
+FROM node:lts-alpine AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 ENV NEXT_TELEMETRY_DISABLED 1;
 RUN yarn build && yarn install --production --ignore-scripts --prefer-offline
 
-FROM node:alpine AS runner
+FROM node:lts-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
@@ -24,6 +25,7 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/prisma ./prisma
 
 USER nextjs
 

@@ -3,6 +3,23 @@ version: "3"
 services:
   app:
     build: .
-    container_name: app
+    container_name: portfolio
+    environment:
+      DATABASE_URL: "postgres://portfolio:portfolio@db:5432/portfolio"
     ports:
       - 3000:3000
+
+  db:
+    image: postgres:14
+    container_name: portfolio-db
+    environment:
+      POSTGRES_USER: "portfolio"
+      POSTGRES_PASSWORD: "portfolio"
+      POSTGRES_DB: "portfolio"
+    ports:
+      - 5432:5432
+    volumes:
+      - db:/var/lib/postgresql/data
+
+volumes: 
+  db:

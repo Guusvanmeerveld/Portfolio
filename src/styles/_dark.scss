@@ -6,12 +6,41 @@
     }
 
     .empty {
-        background-color: $dark-color-secondary;
+        background-color: $bg-dark-secondary;
         color: $text-primary;
     }
 
     .card {
         background-color: $bg-dark;
+    }
+
+    .form-input,
+    .form-icon {
+        background-color: $bg-dark-secondary !important;
+        color: $text-primary;
+        border-color: lighten($bg-dark-secondary, 10%);
+    }
+
+    .divider-vert {
+        &::before {
+            border-color: lighten($bg-dark-secondary, 10%);
+        }
+
+        &[data-content]::after {
+            background-color: $bg-dark;
+        }
+    }
+
+    .bg-gray {
+        background-color: $bg-dark-secondary !important;
+    }
+
+    .chip {
+        background-color: lighten($bg-dark-secondary, 10%);
+    }
+
+    .divider {
+        border-color: $bg-dark-secondary;
     }
 
     a:hover {
