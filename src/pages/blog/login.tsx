@@ -1,4 +1,4 @@
-import { GetStaticProps, NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
 import { NextSeo } from "next-seo";
 
 import Layout from "@components/Layout";
@@ -8,7 +8,9 @@ import multipleClassNames from "@utils/multipleClassNames";
 import styles from "./login.module.scss";
 import { registrationIsEnabled } from "@utils/config";
 
-const Login: NextPage = () => {
+const Login: NextPage<{ registrationEnabled: boolean }> = ({
+	registrationEnabled
+}) => {
 	return (
 		<Layout>
 			<NextSeo title="Login" />
@@ -16,7 +18,7 @@ const Login: NextPage = () => {
 				<div className="columns">
 					<div
 						className={`col-md-4 ${
-							registrationIsEnabled ? "col-ml-auto" : "col-mx-auto"
+							registrationEnabled ? "col-ml-auto" : "col-mx-auto"
 						}`}
 					>
 						<h2 className={styles.title}>Login to blog</h2>
@@ -61,7 +63,7 @@ const Login: NextPage = () => {
 							</div>
 						</form>
 					</div>
-					{registrationIsEnabled && (
+					{registrationEnabled && (
 						<>
 							<div
 								className={multipleClassNames("divider-vert", styles.divider)}
@@ -126,6 +128,10 @@ const Login: NextPage = () => {
 			</div>
 		</Layout>
 	);
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+	return { props: { registrationEnabled: registrationIsEnabled } };
 };
 
 export default Login;
