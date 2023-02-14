@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import { NextSeo } from "next-seo";
 
 import { Post, User } from "@prisma/client";
@@ -17,8 +17,7 @@ const Blog: NextPage<{
 	posts: (Post & {
 		author: User;
 	})[];
-	user: User | null;
-}> = ({ posts, user }) => {
+}> = ({ posts }) => {
 	return (
 		<Layout>
 			<NextSeo title="Blog" />
@@ -30,14 +29,7 @@ const Blog: NextPage<{
 							<div className="divider" />
 						</div>
 					</div>
-					{user && (
-						<div className="columns">
-							<div className="column col-8 col-md-12 col-mx-auto">
-								<Link href="/blog/new">New post</Link> &middot;{" "}
-								<Link href="/api/blog/logout">Logout</Link>
-							</div>
-						</div>
-					)}
+
 					{posts.length < 1 && (
 						<div className="columns">
 							<div className="column col-8 col-md-12 col-mx-auto">
@@ -53,36 +45,33 @@ const Blog: NextPage<{
 	);
 };
 
-export const getServerSideProps = withSessionSsr(
-	async ({
-		req
+export const getStaticProps: GetStaticProps = async (
+	{
 		//  query
-	}) => {
-		const user = req.session.user ?? null;
-
-		// let cursor = 0;
-		// if (!Array.isArray(query.cursor) && query.cursor !== undefined) {
-		// 	cursor = parseInt(query.cursor);
-		// }
-
-		const posts = await prisma.post.findMany({
-			where: { published: user ? undefined : true },
-			orderBy: { createdAt: "desc" },
-			take: 5,
-			include: { author: true }
-		});
-
-		return {
-			props: {
-				user,
-				posts: posts.map((post) => ({
-					...post,
-					createdAt: post.createdAt.toString(),
-					content: post.content?.split("\n")[0]
-				}))
-			}
-		};
 	}
-);
+) => {
+	// let cursor = 0;
+	// if (!Array.isArray(query.cursor) && query.cursor !== undefined) {
+	// 	cursor = parseInt(query.cursor);
+	// }
+
+	const posts = await prisma.post.findMany({
+		where: { published: true },
+		orderBy: { createdAt: "desc" },
+		take: 5,
+		include: { author: true }
+	});
+
+	return {
+		props: {
+			posts: posts.map((post) => ({
+				...post,
+				createdAt: post.createdAt.toString(),
+				content: post.content?.split("\n")[0]
+			}))
+		},
+		revalidate: 30 * 60
+	};
+};
 
 export default Blog;
