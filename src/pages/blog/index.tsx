@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { GetStaticProps, NextPage } from "next";
 import { NextSeo } from "next-seo";
 
@@ -6,7 +5,6 @@ import { Post, User } from "@prisma/client";
 
 import Layout from "@components/Layout";
 
-import { withSessionSsr } from "@utils/session";
 import prisma from "@utils/prisma";
 
 import PostComponent from "@components/Post";
@@ -55,12 +53,14 @@ export const getStaticProps: GetStaticProps = async (
 	// 	cursor = parseInt(query.cursor);
 	// }
 
-	const posts = await prisma.post.findMany({
-		where: { published: true },
-		orderBy: { createdAt: "desc" },
-		take: 5,
-		include: { author: true }
-	});
+	const posts = await prisma.post
+		.findMany({
+			where: { published: true },
+			orderBy: { createdAt: "desc" },
+			take: 5,
+			include: { author: true }
+		})
+		.catch(() => []);
 
 	return {
 		props: {
@@ -70,7 +70,7 @@ export const getStaticProps: GetStaticProps = async (
 				content: post.content?.split("\n")[0]
 			}))
 		},
-		revalidate: 30 * 60
+		revalidate: 60 * 1
 	};
 };
 

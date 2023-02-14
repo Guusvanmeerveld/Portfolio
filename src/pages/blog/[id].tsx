@@ -1,12 +1,11 @@
 import { NextSeo } from "next-seo";
-import { NextPage } from "next";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
 import { Post, User } from "@prisma/client";
 
 import Layout from "@components/Layout";
 import Tags from "@components/Tags";
 
-import { withSessionSsr } from "@utils/session";
 import prisma from "@utils/prisma";
 
 import styles from "./[id].module.scss";
@@ -15,7 +14,6 @@ const PostPage: NextPage<{
 	post: Post & {
 		author: User;
 	};
-	user: User | null;
 }> = ({ post }) => {
 	return (
 		<Layout>
@@ -42,7 +40,22 @@ const PostPage: NextPage<{
 	);
 };
 
-export const getServerSideProps = withSessionSsr(async ({ req, params }) => {
+export const getStaticPaths: GetStaticPaths = async ({}) => {
+	const posts = await prisma.post
+		.findMany({
+			where: { published: true }
+		})
+		.catch(() => []);
+
+	const paths = posts.map((post) => ({
+		params: { id: post.id.toString() }
+	}));
+
+	// { fallback: false } means other routes should 404
+	return { paths, fallback: false };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
 	if (!params?.id || Array.isArray(params?.id)) return { notFound: true };
 
 	const postId = parseInt(params?.id);
@@ -56,17 +69,15 @@ export const getServerSideProps = withSessionSsr(async ({ req, params }) => {
 
 	if (post === null) return { notFound: true };
 
-	const user = req.session.user ?? null;
-
 	return {
 		props: {
-			user,
 			post: {
 				...post,
 				createdAt: post.createdAt.toString()
 			}
-		}
+		},
+		revalidate: 60 * 10
 	};
-});
+};
 
 export default PostPage;
