@@ -40,6 +40,7 @@ steps:
       debug: true
       repo: guusvanmeerveld/portfolio
       tags: latest
+      platform: linux/amd64
       username:
         from_secret: docker_username
       password:
@@ -63,6 +64,7 @@ steps:
     settings:
       repo: guusvanmeerveld/portfolio
       tags: latest
+      platform: linux/arm64
       username:
         from_secret: docker_username
       password:
