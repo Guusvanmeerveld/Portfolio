@@ -38,7 +38,7 @@ steps:
     privileged: true
     settings:
       debug: true
-      platforms: linux/arm64
+      platforms: linux/amd64
       repo: guusvanmeerveld/portfolio
       tags: latest
       username:
