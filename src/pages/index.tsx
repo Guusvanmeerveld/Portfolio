@@ -25,6 +25,7 @@ export const getStaticProps: GetStaticProps = async () => {
 		repositories.reduce((prev, current) =>
 			prev.stars_count > current.stars_count ? prev : current
 		);
+
 	return {
 		props: {
 			isAvailable,

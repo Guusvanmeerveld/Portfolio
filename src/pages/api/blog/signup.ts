@@ -45,7 +45,8 @@ const handle: NextApiHandler = async (req, res) => {
 			data: {
 				email: signupCredentials.data.email,
 				name: signupCredentials.data.name,
-				password
+				password,
+				admin: process.env.ADMIN_EMAIL === signupCredentials.data.email
 			}
 		})
 		.then(async (user) => {
