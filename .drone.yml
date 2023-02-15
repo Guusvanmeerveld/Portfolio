@@ -37,6 +37,7 @@ steps:
     image: plugins/docker
     privileged: true
     settings:
+      debug: true
       repo: guusvanmeerveld/portfolio
       tags: latest
       username:
