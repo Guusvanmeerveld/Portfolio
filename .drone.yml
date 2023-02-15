@@ -35,6 +35,7 @@ platform:
 steps:
   - name: Build Dockerfile and push to Dockerhub
     image: plugins/docker
+    privileged: true
     settings:
       repo: guusvanmeerveld/portfolio
       tags: latest
@@ -49,7 +50,7 @@ depends_on:
 ---
 kind: pipeline
 type: docker
-name: build-linux-amr64
+name: build-linux-arm64
 
 platform:
   os: linux
