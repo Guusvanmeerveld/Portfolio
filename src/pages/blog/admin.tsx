@@ -4,7 +4,9 @@ import { NextSeo } from "next-seo";
 import { Post, User } from "@prisma/client";
 
 import Layout from "@components/Layout";
+
 import { withSessionSsr } from "@utils/session";
+import prisma from "@utils/prisma";
 
 const AdminPage: NextPage<{ user: User; posts: Post & { author: User } }> = ({
 	user,
