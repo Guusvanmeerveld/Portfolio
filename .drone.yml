@@ -34,10 +34,11 @@ platform:
 
 steps:
   - name: Build Dockerfile and push to Dockerhub
-    image: plugins/docker
+    image: thegeeklab/drone-docker-buildx:23
     privileged: true
     settings:
       debug: true
+      platforms: linux/arm64
       repo: guusvanmeerveld/portfolio
       tags: latest
       username:
@@ -59,10 +60,12 @@ platform:
 
 steps:
   - name: Build Dockerfile and push to Dockerhub
-    image: plugins/docker
+    image: thegeeklab/drone-docker-buildx:23
+    privileged: true
     settings:
       repo: guusvanmeerveld/portfolio
-      tags: latest-arm64
+      tags: latest
+      platforms: linux/arm64
       username:
         from_secret: docker_username
       password:
