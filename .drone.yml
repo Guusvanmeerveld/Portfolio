@@ -35,6 +35,7 @@ platform:
 steps:
   - name: Build Dockerfile and push to Dockerhub
     image: plugins/docker
+    privileged: true
     settings:
       debug: true
       repo: guusvanmeerveld/portfolio
