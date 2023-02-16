@@ -35,13 +35,12 @@ platform:
 steps:
   - name: Build Dockerfile and push to Dockerhub
     image: plugins/docker
-    privileged: true
     settings:
-      debug: true
       repo: guusvanmeerveld/portfolio
       tags: 
         - latest
         - latest-amd64
+      platforms: linux/amd64
       username:
         from_secret: docker_username
       password:
@@ -65,6 +64,7 @@ steps:
     settings:
       repo: guusvanmeerveld/portfolio
       tags: latest-arm64
+      platforms: linux/arm64
       username:
         from_secret: docker_username
       password:
