@@ -35,7 +35,8 @@ const handle: NextApiHandler = async (req, res) => {
 				create: {
 					...data,
 					published: data.published !== undefined,
-					tags: data.tags.trim().split(" ")
+					tags: data.tags.trim().split(" "),
+					content: data.content.trim()
 				}
 			}
 		}

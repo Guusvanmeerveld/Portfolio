@@ -67,7 +67,7 @@ export const getStaticProps: GetStaticProps = async (
 			posts: posts.map((post) => ({
 				...post,
 				createdAt: post.createdAt.toString(),
-				content: post.content?.split("\n")[0]
+				content: post.content?.trim().split("\n")[0]
 			}))
 		},
 		revalidate: 60 * 1

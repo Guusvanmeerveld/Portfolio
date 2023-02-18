@@ -43,6 +43,19 @@
         border-color: $bg-dark-secondary;
     }
 
+    .table {
+
+        td,
+        th {
+            border-color: lighten($bg-dark-secondary, 10%);
+        }
+    }
+
+    .table tbody tr.active,
+    .table.table-striped tbody tr.active {
+        background: $bg-dark-secondary
+    }
+
     a:hover {
         color: $primary-color-dark;
     }

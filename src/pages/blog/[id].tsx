@@ -24,6 +24,7 @@ const PostPage: NextPage<{
 						<div className="column col-2" />
 						<div className="column col-6 col-md-12">
 							<h1>{post.title}</h1>
+							<div className="divider" />
 							<h4>
 								by {post.author.name} on{" "}
 								{new Date(post.createdAt).toLocaleDateString()}

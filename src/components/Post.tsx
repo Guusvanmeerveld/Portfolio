@@ -17,7 +17,7 @@ const Post: FC<{
 		<div className="columns mt-2">
 			<div
 				className={multipleClassNames(
-					"column col-4 col-md-6 col-ml-auto bg-gray",
+					"column col-4 col-md-12 col-ml-auto bg-gray",
 					styles.body
 				)}
 			>
@@ -39,7 +39,7 @@ const Post: FC<{
 			</div>
 			<div
 				className={multipleClassNames(
-					"column col-4 col-md-6 col-mr-auto bg-gray",
+					"column col-4 col-md-12 col-mr-auto bg-gray",
 					styles.body,
 					styles.info
 				)}
