@@ -14,4 +14,4 @@ export const unauthorized: Response = baseError(
 );
 
 export const parseUserInputError: (error: unknown) => string = (error) =>
-	"Failed to parse user input: ".concat(error);
+	"Failed to parse user input: ".concat(JSON.stringify(error));

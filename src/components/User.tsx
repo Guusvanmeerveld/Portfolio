@@ -3,7 +3,7 @@ import z from "zod";
 
 import Image from "next/image";
 
-import { UserResponse } from "@models/responses";
+import { UserResponse } from "@models/git/responses";
 import { giteaServerUrl } from "@utils/config";
 import multipleClassNames from "@utils/multipleClassNames";
 

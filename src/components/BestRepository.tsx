@@ -5,7 +5,7 @@ import z from "zod";
 
 import { format as formatTimeAgo } from "timeago.js";
 
-import { RepositoryResponse } from "@models/responses";
+import { RepositoryResponse } from "@models/git/responses";
 
 const BestRepository: FC<{ repository: z.infer<typeof RepositoryResponse> }> =
 	({ repository }) => {

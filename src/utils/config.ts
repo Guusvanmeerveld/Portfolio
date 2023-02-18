@@ -16,7 +16,7 @@ export const sessionOptions = {
 };
 
 export const registrationIsEnabled =
-	process.env.NEXT_PUBLIC_ALLOW_REGISTRATION !== undefined ? true : false;
+	process.env.ALLOW_REGISTRATION !== undefined ? true : false;
 
 export const saltRoundsForPassword =
 	parseInt(process.env.PASSWORD_SALT_ROUNDS ?? "") || 10;

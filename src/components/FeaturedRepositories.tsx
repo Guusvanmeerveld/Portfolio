@@ -7,7 +7,7 @@ import Link from "next/link";
 
 import multipleClassNames from "@utils/multipleClassNames";
 
-import { RepositoryResponse } from "@models/responses";
+import { RepositoryResponse } from "@models/git/responses";
 
 import styles from "./repositories.module.scss";
 
