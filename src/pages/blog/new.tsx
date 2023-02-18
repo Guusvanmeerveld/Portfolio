@@ -1,23 +1,23 @@
-import axios from "axios";
-
-import { FormEvent, useCallback, useState } from "react";
-
 import { NextPage } from "next";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 
+import styles from "./new.module.scss";
+
+import { FormEvent, useCallback, useState } from "react";
+
+import axios from "axios";
+
 import { User } from "@prisma/client";
-
-import Layout from "@components/Layout";
-
-import { withSessionSsr } from "@utils/session";
-import { parseAxiosError, parseAxiosResponse } from "@utils/fetch";
-import { parseUserInputError } from "@utils/errors";
 
 import { Post } from "@models/post";
 import { Response } from "@models/response";
 
-import styles from "./new.module.scss";
+import { parseUserInputError } from "@utils/errors";
+import { parseAxiosError, parseAxiosResponse } from "@utils/fetch";
+import { withSessionSsr } from "@utils/session";
+
+import Layout from "@components/Layout";
 
 const NewPostPage: NextPage<{ user: User }> = ({ user }) => {
 	const [title, setTitle] = useState("");

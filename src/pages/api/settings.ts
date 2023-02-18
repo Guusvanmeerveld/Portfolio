@@ -1,6 +1,6 @@
-import { Response } from "@models/response";
-
 import { NextApiHandler } from "next";
+
+import { Response } from "@models/response";
 
 import { registrationIsEnabled } from "@utils/config";
 import { methodNotAllowed } from "@utils/errors";

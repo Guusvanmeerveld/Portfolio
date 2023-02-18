@@ -1,8 +1,8 @@
-import { FC, useEffect, useState } from "react";
-
 import { useTheme } from "next-themes";
 
 import styles from "./themeChanger.module.scss";
+
+import { FC, useEffect, useState } from "react";
 
 const ThemeChanger: FC = () => {
 	const [mounted, setMounted] = useState(false);

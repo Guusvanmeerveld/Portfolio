@@ -1,9 +1,8 @@
 import Link from "next/link";
-
-import { FC } from "react";
+import { format as formatTimeAgo } from "timeago.js";
 import z from "zod";
 
-import { format as formatTimeAgo } from "timeago.js";
+import { FC } from "react";
 
 import { RepositoryResponse } from "@models/git/responses";
 

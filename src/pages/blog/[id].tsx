@@ -1,14 +1,14 @@
-import { NextSeo } from "next-seo";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { NextSeo } from "next-seo";
+
+import styles from "./[id].module.scss";
 
 import { Post, User } from "@prisma/client";
 
-import Layout from "@components/Layout";
-import Tags from "@components/Tags";
-
 import prisma from "@utils/prisma";
 
-import styles from "./[id].module.scss";
+import Layout from "@components/Layout";
+import Tags from "@components/Tags";
 
 const PostPage: NextPage<{
 	post: Post & {

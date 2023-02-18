@@ -1,15 +1,14 @@
 import { GetStaticProps, NextPage } from "next";
 import { NextSeo } from "next-seo";
 
-import { Post, User } from "@prisma/client";
+import styles from "./blog.module.scss";
 
-import Layout from "@components/Layout";
+import { Post, User } from "@prisma/client";
 
 import prisma from "@utils/prisma";
 
+import Layout from "@components/Layout";
 import PostComponent from "@components/Post";
-
-import styles from "./blog.module.scss";
 
 const Blog: NextPage<{
 	posts: (Post & {

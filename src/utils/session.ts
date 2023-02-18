@@ -5,9 +5,9 @@ import {
 	NextApiHandler
 } from "next";
 
-import { User } from "@prisma/client";
-
 import { sessionOptions } from "./config";
+
+import { User } from "@prisma/client";
 
 export const withIronSession = (handler: NextApiHandler) =>
 	withIronSessionApiRoute(handler, sessionOptions);

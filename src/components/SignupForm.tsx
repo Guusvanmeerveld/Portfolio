@@ -1,14 +1,14 @@
-import axios from "axios";
+import { useRouter } from "next/router";
 
 import { FC, FormEvent, useCallback, useState } from "react";
 
-import { useRouter } from "next/router";
+import axios from "axios";
 
-import { SignupCredentials } from "@models/signup";
 import { Response } from "@models/response";
+import { SignupCredentials } from "@models/signup";
 
-import { parseAxiosError, parseAxiosResponse } from "@utils/fetch";
 import { parseUserInputError } from "@utils/errors";
+import { parseAxiosError, parseAxiosResponse } from "@utils/fetch";
 
 const SignupForm: FC = () => {
 	const [email, setEmail] = useState("");

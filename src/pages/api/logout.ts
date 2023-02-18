@@ -1,8 +1,9 @@
 import { NextApiHandler } from "next";
 
-import { withIronSession } from "@utils/session";
-import { methodNotAllowed, unauthorized } from "@utils/errors";
 import { Response } from "@models/response";
+
+import { methodNotAllowed, unauthorized } from "@utils/errors";
+import { withIronSession } from "@utils/session";
 
 const handle: NextApiHandler<Response> = (req, res) => {
 	if (req.method?.toUpperCase() != "GET") {

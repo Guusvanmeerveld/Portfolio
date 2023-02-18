@@ -1,14 +1,14 @@
 import { useRouter } from "next/router";
 
-import axios from "axios";
-
 import { FC, FormEvent, useCallback, useState } from "react";
+
+import axios from "axios";
 
 import { LoginCredentials } from "@models/login";
 import { Response } from "@models/response";
 
-import { parseAxiosError, parseAxiosResponse } from "@utils/fetch";
 import { parseUserInputError } from "@utils/errors";
+import { parseAxiosError, parseAxiosResponse } from "@utils/fetch";
 
 const LoginForm: FC = () => {
 	const [username, setUsername] = useState("");
@@ -87,7 +87,7 @@ const LoginForm: FC = () => {
 					<i className="form-icon" /> Remember me
 				</label>
 				{error !== null && (
-					<div className="toast toast-error">
+					<div className="toast toast-error mb-2">
 						<button
 							className="btn btn-clear float-right"
 							onClick={() => setError(null)}

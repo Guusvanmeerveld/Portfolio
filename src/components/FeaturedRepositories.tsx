@@ -1,15 +1,14 @@
-import z from "zod";
-import { FC } from "react";
-
-import { format as formatTimeAgo } from "timeago.js";
-
 import Link from "next/link";
+import { format as formatTimeAgo } from "timeago.js";
+import z from "zod";
 
-import multipleClassNames from "@utils/multipleClassNames";
+import styles from "./repositories.module.scss";
+
+import { FC } from "react";
 
 import { RepositoryResponse } from "@models/git/responses";
 
-import styles from "./repositories.module.scss";
+import multipleClassNames from "@utils/multipleClassNames";
 
 const FeaturedRepositories: FC<{
 	repositories: z.infer<typeof RepositoryResponse>[];

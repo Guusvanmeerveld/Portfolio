@@ -1,11 +1,11 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 
-import Layout from "@components/Layout";
+import styles from "./404.module.scss";
 
 import multipleClassNames from "@utils/multipleClassNames";
 
-import styles from "./404.module.scss";
+import Layout from "@components/Layout";
 
 const NotFound: NextPage = () => {
 	const router = useRouter();

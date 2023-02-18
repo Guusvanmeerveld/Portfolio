@@ -1,11 +1,11 @@
-import { FC } from "react";
-
 import Link from "next/link";
 
-import multipleClassNames from "@utils/multipleClassNames";
-import { giteaServerUrl, giteaUsername } from "@utils/config";
-
 import styles from "./footer.module.scss";
+
+import { FC } from "react";
+
+import { giteaServerUrl, giteaUsername } from "@utils/config";
+import multipleClassNames from "@utils/multipleClassNames";
 
 const Footer: FC = () => {
 	return (

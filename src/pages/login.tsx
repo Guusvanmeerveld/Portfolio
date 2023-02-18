@@ -1,19 +1,16 @@
-import z from "zod";
-
-import axios from "axios";
-
 import { useQuery } from "@tanstack/react-query";
-
 import { NextPage } from "next";
 import { NextSeo } from "next-seo";
-
-import Layout from "@components/Layout";
-
-import multipleClassNames from "@utils/multipleClassNames";
-import { parseAxiosError, parseAxiosResponse } from "@utils/fetch";
+import z from "zod";
 
 import styles from "./login.module.scss";
 
+import axios from "axios";
+
+import { parseAxiosError, parseAxiosResponse } from "@utils/fetch";
+import multipleClassNames from "@utils/multipleClassNames";
+
+import Layout from "@components/Layout";
 import LoginForm from "@components/LoginForm";
 import SignupForm from "@components/SignupForm";
 

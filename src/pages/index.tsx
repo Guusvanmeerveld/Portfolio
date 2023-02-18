@@ -1,22 +1,20 @@
-import z from "zod";
-
-import { NextSeo } from "next-seo";
-
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
-
-import User from "@components/User";
-import Layout from "@components/Layout";
-import FeaturedRepositories from "@components/FeaturedRepositories";
-import BestRepository from "@components/BestRepository";
+import { NextSeo } from "next-seo";
+import z from "zod";
 
 import { RepositoryResponse } from "@models/git/responses";
 
+import { giteaUsername } from "@utils/config";
 import {
 	fetchAvailability,
 	fetchRepositories,
 	fetchUser
 } from "@utils/git/fetch";
-import { giteaUsername } from "@utils/config";
+
+import BestRepository from "@components/BestRepository";
+import FeaturedRepositories from "@components/FeaturedRepositories";
+import Layout from "@components/Layout";
+import User from "@components/User";
 
 export const getStaticProps: GetStaticProps = async () => {
 	const isAvailable = await fetchAvailability();

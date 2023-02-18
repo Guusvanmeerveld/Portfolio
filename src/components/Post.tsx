@@ -1,14 +1,14 @@
-import { FC } from "react";
-
 import Link from "next/link";
+
+import styles from "./post.module.scss";
+
+import { FC } from "react";
 
 import { Post, User } from "@prisma/client";
 
 import multipleClassNames from "@utils/multipleClassNames";
 
-import styles from "./post.module.scss";
-
-const Post: FC<{
+const PostsPage: FC<{
 	post: Post & {
 		author: User;
 	};
@@ -51,4 +51,4 @@ const Post: FC<{
 	);
 };
 
-export default Post;
+export default PostsPage;

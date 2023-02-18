@@ -1,13 +1,14 @@
-import { FC } from "react";
+import Image from "next/image";
 import z from "zod";
 
-import Image from "next/image";
+import styles from "./user.module.scss";
+
+import { FC } from "react";
 
 import { UserResponse } from "@models/git/responses";
+
 import { giteaServerUrl } from "@utils/config";
 import multipleClassNames from "@utils/multipleClassNames";
-
-import styles from "./user.module.scss";
 
 const User: FC<{ isAvailable: boolean; user: z.infer<typeof UserResponse> }> =
 	({ isAvailable, user }) => {

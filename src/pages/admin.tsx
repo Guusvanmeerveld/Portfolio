@@ -1,14 +1,14 @@
 import { NextPage } from "next";
 import { NextSeo } from "next-seo";
 
+import styles from "./admin.module.scss";
+
 import { Post, User } from "@prisma/client";
 
-import Layout from "@components/Layout";
-
-import { withSessionSsr } from "@utils/session";
 import prisma from "@utils/prisma";
+import { withSessionSsr } from "@utils/session";
 
-import styles from "./admin.module.scss";
+import Layout from "@components/Layout";
 
 const AdminPage: NextPage<{
 	user: User;

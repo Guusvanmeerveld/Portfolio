@@ -1,7 +1,6 @@
-import axios from "axios";
 import z from "zod";
 
-import createConfigCatClient from "@utils/createConfigCatClient";
+import axios from "axios";
 
 import {
 	RepositoryResponse,
@@ -10,6 +9,7 @@ import {
 } from "@models/git/responses";
 
 import { giteaServerUrl } from "@utils/config";
+import createConfigCatClient from "@utils/createConfigCatClient";
 
 const apiUrl = `https://${giteaServerUrl}/api/v1`;
 

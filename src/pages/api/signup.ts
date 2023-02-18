@@ -1,15 +1,13 @@
 import bcrypt from "bcrypt";
-
 import { NextApiHandler } from "next";
 
-import prisma from "@utils/prisma";
-
-import { SignupCredentials } from "@models/signup";
 import { Response } from "@models/response";
+import { SignupCredentials } from "@models/signup";
 
-import { withIronSession } from "@utils/session";
-import { methodNotAllowed } from "@utils/errors";
 import { registrationIsEnabled, saltRoundsForPassword } from "@utils/config";
+import { methodNotAllowed } from "@utils/errors";
+import prisma from "@utils/prisma";
+import { withIronSession } from "@utils/session";
 
 const handle: NextApiHandler<Response> = async (req, res) => {
 	if (!registrationIsEnabled) {

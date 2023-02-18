@@ -4,9 +4,9 @@ import { NextApiHandler } from "next";
 import { LoginCredentials } from "@models/login";
 import { Response } from "@models/response";
 
-import { withIronSession } from "@utils/session";
 import { methodNotAllowed, unauthorized } from "@utils/errors";
 import prisma from "@utils/prisma";
+import { withIronSession } from "@utils/session";
 
 const handle: NextApiHandler<Response> = async (req, res) => {
 	if (req.method?.toUpperCase() !== "POST") {
