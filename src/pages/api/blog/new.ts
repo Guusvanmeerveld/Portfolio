@@ -2,11 +2,12 @@ import { NextApiHandler } from "next";
 
 import { methodNotAllowed, unauthorized } from "@utils/errors";
 import { withIronSession } from "@utils/session";
-import { Post } from "@models/post";
-
 import prisma from "@utils/prisma";
 
-const handle: NextApiHandler = async (req, res) => {
+import { Response } from "@models/response";
+import { Post } from "@models/post";
+
+const handle: NextApiHandler<Response> = async (req, res) => {
 	if (req.method?.toUpperCase() != "POST") {
 		res.status(405).json(methodNotAllowed);
 		return;
@@ -26,23 +27,24 @@ const handle: NextApiHandler = async (req, res) => {
 		return;
 	}
 
-	const data = postData.data;
+	const { publish, ...data } = postData.data;
 
-	await prisma.user.update({
-		where: { id: user.id },
-		data: {
-			posts: {
-				create: {
-					...data,
-					published: data.published !== undefined,
-					tags: data.tags.trim().split(" "),
-					content: data.content.trim()
+	await prisma.user
+		.update({
+			where: { id: user.id },
+			data: {
+				posts: {
+					create: {
+						...data,
+						published: publish,
+						tags: data.tags.trim().split(" "),
+						content: data.content.trim()
+					}
 				}
 			}
-		}
-	});
-
-	res.redirect("/blog");
+		})
+		.then(() => res.json({ ok: true, data: "Successfully created new post" }))
+		.catch((error) => res.status(500).json({ ok: false, error }));
 };
 
 export default withIronSession(handle);

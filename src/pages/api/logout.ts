@@ -2,8 +2,9 @@ import { NextApiHandler } from "next";
 
 import { withIronSession } from "@utils/session";
 import { methodNotAllowed, unauthorized } from "@utils/errors";
+import { Response } from "@models/response";
 
-const handle: NextApiHandler = (req, res) => {
+const handle: NextApiHandler<Response> = (req, res) => {
 	if (req.method?.toUpperCase() != "GET") {
 		res.status(405).json(methodNotAllowed);
 		return;
@@ -20,7 +21,7 @@ const handle: NextApiHandler = (req, res) => {
 
 	req.session.user = undefined;
 
-	res.redirect("/blog");
+	res.json({ ok: true, data: "Logout successfull" });
 };
 
 export default withIronSession(handle);

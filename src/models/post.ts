@@ -2,7 +2,7 @@ import z from "zod";
 
 export const Post = z.object({
 	title: z.string(),
-	content: z.string(),
+	content: z.string().min(100),
 	tags: z.string(),
-	published: z.literal("on").optional()
+	publish: z.boolean()
 });

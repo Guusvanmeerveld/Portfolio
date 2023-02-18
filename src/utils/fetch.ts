@@ -1,53 +1,23 @@
-import axios from "axios";
-import z from "zod";
+import { AxiosError, AxiosResponse } from "axios";
 
-import createConfigCatClient from "./createConfigCatClient";
+import ResponseModel, { ErrorModel, Response } from "@models/response";
 
-import {
-	RepositoryResponse,
-	SearchResultsResponse,
-	UserResponse
-} from "@models/responses";
-import { giteaServerUrl } from "./config";
+export const parseAxiosResponse = (res: AxiosResponse<unknown>): Response => {
+	const parseResponseResult = ResponseModel.safeParse(res.data);
 
-const apiUrl = `https://${giteaServerUrl}/api/v1`;
+	if (!parseResponseResult.success) {
+		return { ok: false, error: parseResponseResult.error };
+	}
 
-export const fetchAvailability = async (): Promise<boolean> => {
-	const configCatClient = createConfigCatClient();
-
-	const isAvailable: boolean =
-		(await configCatClient?.getValueAsync("amiavailable", true)) ?? true;
-
-	return isAvailable;
+	return parseResponseResult.data;
 };
 
-export const fetchUser = async (
-	giteaUsername: string
-): Promise<z.infer<typeof UserResponse>> => {
-	const { data: user } = await axios.get<unknown>(
-		`${apiUrl}/users/${giteaUsername}`
-	);
+export const parseAxiosError = (e: AxiosError<unknown>): Response => {
+	const parseErrorResult = ErrorModel.safeParse(e.response?.data);
 
-	return UserResponse.parse(user);
-};
+	if (!parseErrorResult.success) {
+		return { ok: false, error: parseErrorResult.error };
+	}
 
-export const fetchRepositories = async (
-	giteaUserUid: number
-): Promise<z.infer<typeof RepositoryResponse>[]> => {
-	const { data: repositories } = await axios.get<unknown>(
-		`${apiUrl}/repos/search`,
-		{
-			params: {
-				topic: true,
-				q: "on-portfolio",
-				id: giteaUserUid,
-				limit: 6
-			}
-		}
-	);
-
-	const results = SearchResultsResponse.parse(repositories);
-
-	if (results.ok) return results.data;
-	else throw results.data;
+	return parseErrorResult.data;
 };

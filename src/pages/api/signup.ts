@@ -5,11 +5,13 @@ import { NextApiHandler } from "next";
 import prisma from "@utils/prisma";
 
 import { SignupCredentials } from "@models/signup";
+import { Response } from "@models/response";
+
 import { withIronSession } from "@utils/session";
 import { methodNotAllowed } from "@utils/errors";
 import { registrationIsEnabled, saltRoundsForPassword } from "@utils/config";
 
-const handle: NextApiHandler = async (req, res) => {
+const handle: NextApiHandler<Response> = async (req, res) => {
 	if (!registrationIsEnabled) {
 		res
 			.status(403)
@@ -54,7 +56,7 @@ const handle: NextApiHandler = async (req, res) => {
 
 			await req.session.save();
 
-			res.redirect("/blog");
+			res.json({ ok: true, data: "Signup successfull" });
 		})
 		.catch((error) => res.status(500).json({ ok: false, error }));
 };

@@ -9,9 +9,13 @@ import Layout from "@components/Layout";
 import FeaturedRepositories from "@components/FeaturedRepositories";
 import BestRepository from "@components/BestRepository";
 
-import { RepositoryResponse } from "@models/responses";
+import { RepositoryResponse } from "@models/git/responses";
 
-import { fetchAvailability, fetchRepositories, fetchUser } from "@utils/fetch";
+import {
+	fetchAvailability,
+	fetchRepositories,
+	fetchUser
+} from "@utils/git/fetch";
 import { giteaUsername } from "@utils/config";
 
 export const getStaticProps: GetStaticProps = async () => {

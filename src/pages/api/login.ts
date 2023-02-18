@@ -2,13 +2,14 @@ import bcrypt from "bcrypt";
 import { NextApiHandler } from "next";
 
 import { LoginCredentials } from "@models/login";
+import { Response } from "@models/response";
 
 import { withIronSession } from "@utils/session";
 import { methodNotAllowed, unauthorized } from "@utils/errors";
 import prisma from "@utils/prisma";
 
-const handle: NextApiHandler = async (req, res) => {
-	if (req.method?.toUpperCase() != "POST") {
+const handle: NextApiHandler<Response> = async (req, res) => {
+	if (req.method?.toUpperCase() !== "POST") {
 		res.status(405).json(methodNotAllowed);
 		return;
 	}
@@ -40,13 +41,14 @@ const handle: NextApiHandler = async (req, res) => {
 
 	if (!isCorrect) {
 		res.status(401).json(unauthorized);
+		return;
 	}
 
 	req.session.user = user;
 
 	await req.session.save();
 
-	res.redirect("/blog");
+	res.json({ ok: true, data: "Login successfull" });
 };
 
 export default withIronSession(handle);

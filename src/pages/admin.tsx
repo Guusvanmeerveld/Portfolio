@@ -24,7 +24,7 @@ const AdminPage: NextPage<{
 						<div className="col col-8 col-mx-auto">
 							<h3>Welcome {user.name}</h3>
 						</div>
-						<div className="col col-8 col-mx-auto py-2">
+						<div className="col col-8 col-md-12 col-mx-auto py-2">
 							<h4>Users</h4>
 							<table className="table table-striped table-hover mb-2">
 								<thead>
@@ -49,7 +49,7 @@ const AdminPage: NextPage<{
 								</tbody>
 							</table>
 						</div>
-						<div className="col col-8 col-mx-auto">
+						<div className="col col-8 col-md-12 col-mx-auto">
 							<h4>Posts</h4>
 							<table className="table table-striped table-hover">
 								<thead>

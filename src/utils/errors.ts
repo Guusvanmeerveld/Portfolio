@@ -1,8 +1,17 @@
-const baseError = <T>(error: T) => ({ error, ok: false });
+import z from "zod";
 
-export const methodNotAllowed = baseError("Method not allowed");
+import { Response } from "@models/response";
 
-export const unauthorized = {
-	ok: false,
-	error: "Could not login; incorrect email or password"
-};
+const baseError = (error: string): Response => ({
+	error,
+	ok: false
+});
+
+export const methodNotAllowed: Response = baseError("Method not allowed");
+
+export const unauthorized: Response = baseError(
+	"Could not login; incorrect email or password"
+);
+
+export const parseUserInputError: (error: unknown) => string = (error) =>
+	"Failed to parse user input: ".concat(error);

@@ -1,3 +1,5 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 import "@styles/globals.scss";
 
 import SEO from "../next-seo.config";
@@ -7,11 +9,15 @@ import { ThemeProvider } from "next-themes";
 
 import type { AppProps } from "next/app";
 
+const queryClient = new QueryClient();
+
 const App = ({ Component, pageProps }: AppProps): JSX.Element => (
 	<>
 		<DefaultSeo {...SEO} />
 		<ThemeProvider>
-			<Component {...pageProps} />
+			<QueryClientProvider client={queryClient}>
+				<Component {...pageProps} />
+			</QueryClientProvider>
 		</ThemeProvider>
 	</>
 );
