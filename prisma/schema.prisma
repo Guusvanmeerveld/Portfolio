@@ -17,6 +17,7 @@ model User {
   password String
   name     String
   posts    Post[]
+  links    Link[]
 }
 
 model Post {
@@ -26,6 +27,15 @@ model Post {
   published Boolean  @default(false)
   createdAt DateTime @default(now())
   tags      String[]
+
+  author   User @relation(fields: [authorId], references: [id])
+  authorId Int
+}
+
+model Link {
+  id            Int    @id @default(autoincrement())
+  remoteAddress String
+  location      String
 
   author   User @relation(fields: [authorId], references: [id])
   authorId Int

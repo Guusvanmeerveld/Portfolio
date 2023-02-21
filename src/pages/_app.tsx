@@ -7,7 +7,9 @@ import SEO from "../next-seo.config";
 
 import "@styles/globals.scss";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+	defaultOptions: { queries: { refetchOnWindowFocus: false } }
+});
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => (
 	<>

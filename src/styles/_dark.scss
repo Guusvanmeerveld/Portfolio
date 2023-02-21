@@ -34,8 +34,10 @@
 		background-color: $bg-dark-secondary !important;
 	}
 
-	.chip {
+	.chip,
+	.input-group .input-group-addon {
 		background-color: lighten($bg-dark-secondary, 10%);
+		border-color: lighten($bg-dark-secondary, 20%)
 	}
 
 	.divider {
@@ -43,6 +45,7 @@
 	}
 
 	.table {
+
 		td,
 		th {
 			border-color: lighten($bg-dark-secondary, 10%);

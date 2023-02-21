@@ -2,8 +2,6 @@ import { NextPage } from "next";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 
-import styles from "./new.module.scss";
-
 import { FormEvent, useCallback, useState } from "react";
 
 import axios from "axios";
@@ -17,6 +15,7 @@ import { parseUserInputError } from "@utils/errors";
 import { parseAxiosError, parseAxiosResponse } from "@utils/fetch";
 import { withSessionSsr } from "@utils/session";
 
+import EmptyPage from "@components/EmptyPage";
 import Layout from "@components/Layout";
 
 const NewPostPage: NextPage<{ user: User }> = ({ user }) => {
@@ -62,90 +61,88 @@ const NewPostPage: NextPage<{ user: User }> = ({ user }) => {
 	return (
 		<Layout>
 			<NextSeo title="New post" />
-			<div className={styles.body}>
-				<div className="container">
-					<div className="columns">
-						<div className="column col-8 col-md-12 col-mx-auto">
-							<h2>Create new post</h2>
-							<h5>Logged in as {user.name}</h5>
-							<form onSubmit={createPost}>
-								<div className="form-group">
-									<label className="form-label" htmlFor="title">
-										Post title
-									</label>
+			<EmptyPage>
+				<div className="columns">
+					<div className="column col-8 col-md-12 col-mx-auto">
+						<h2>Create new post</h2>
+						<h5>Logged in as {user.name}</h5>
+						<form onSubmit={createPost}>
+							<div className="form-group">
+								<label className="form-label" htmlFor="title">
+									Post title
+								</label>
+								<input
+									value={title}
+									onChange={(e) => setTitle(e.target.value)}
+									required
+									className="form-input"
+									name="title"
+									type="text"
+									id="title"
+									placeholder="Title"
+								/>
+
+								<label className="form-label" htmlFor="tags">
+									Tags
+								</label>
+								<input
+									value={tags}
+									onChange={(e) => setTags(e.target.value)}
+									required
+									className="form-input"
+									name="tags"
+									type="text"
+									id="tags"
+									placeholder="A space seperated list of tags"
+								/>
+
+								<label className="form-label" htmlFor="content">
+									Content
+								</label>
+								<textarea
+									value={content}
+									onChange={(e) => setContent(e.target.value)}
+									style={{ resize: "none" }}
+									placeholder="Some content"
+									required
+									className="form-input"
+									name="content"
+									id="content"
+									minLength={100}
+									cols={30}
+									rows={10}
+								/>
+
+								<label className="form-checkbox">
 									<input
-										value={title}
-										onChange={(e) => setTitle(e.target.value)}
-										required
-										className="form-input"
-										name="title"
-										type="text"
-										id="title"
-										placeholder="Title"
+										checked={publish}
+										onChange={() => setPublish((state) => !state)}
+										name="published"
+										type="checkbox"
 									/>
+									<i className="form-icon" /> Publish
+								</label>
 
-									<label className="form-label" htmlFor="tags">
-										Tags
-									</label>
-									<input
-										value={tags}
-										onChange={(e) => setTags(e.target.value)}
-										required
-										className="form-input"
-										name="tags"
-										type="text"
-										id="tags"
-										placeholder="A space seperated list of tags"
-									/>
-
-									<label className="form-label" htmlFor="content">
-										Content
-									</label>
-									<textarea
-										value={content}
-										onChange={(e) => setContent(e.target.value)}
-										style={{ resize: "none" }}
-										placeholder="Some content"
-										required
-										className="form-input"
-										name="content"
-										id="content"
-										minLength={100}
-										cols={30}
-										rows={10}
-									/>
-
-									<label className="form-checkbox">
-										<input
-											checked={publish}
-											onChange={() => setPublish((state) => !state)}
-											name="published"
-											type="checkbox"
+								{error !== null && (
+									<div className="toast toast-error my-2">
+										<button
+											className="btn btn-clear float-right"
+											onClick={() => setError(null)}
 										/>
-										<i className="form-icon" /> Publish
-									</label>
+										{error}
+									</div>
+								)}
 
-									{error !== null && (
-										<div className="toast toast-error my-2">
-											<button
-												className="btn btn-clear float-right"
-												onClick={() => setError(null)}
-											/>
-											{error}
-										</div>
-									)}
-
-									<input
-										className={"btn btn-primary"}
-										type="submit"
-										value="Create post"
-									/>
-								</div>
-							</form>
-						</div>
+								<input
+									className={"btn btn-primary"}
+									type="submit"
+									value="Create post"
+								/>
+							</div>
+						</form>
 					</div>
 				</div>
-			</div>
+			</EmptyPage>
 		</Layout>
 	);
 };

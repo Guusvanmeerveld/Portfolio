@@ -40,7 +40,7 @@ const handle: NextApiHandler<Response> = async (req, res) => {
 		)
 	);
 
-	prisma.user
+	await prisma.user
 		.create({
 			data: {
 				email: signupCredentials.data.email,
