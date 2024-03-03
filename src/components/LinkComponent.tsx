@@ -9,6 +9,8 @@ import axios from "axios";
 
 import { Link as LinkType } from "@prisma/client";
 
+import { LinkId } from "@models/link";
+
 import { parseAxiosError, parseAxiosResponse } from "@utils/fetch";
 import useUser from "@utils/hooks/useUser";
 import multipleClassNames from "@utils/multipleClassNames";
@@ -19,7 +21,7 @@ const LinkComponent: FC<{ link: LinkType }> = ({ link }) => {
 	const [deleted, setDeleted] = useState(false);
 
 	const deleteLink = useCallback(async (id) => {
-		const parseUserInputResult = z.number().safeParse(id);
+		const parseUserInputResult = LinkId.safeParse(id);
 
 		if (!parseUserInputResult.success) {
 			setError(parseUserInputResult.error.message);
@@ -27,7 +29,7 @@ const LinkComponent: FC<{ link: LinkType }> = ({ link }) => {
 		}
 
 		const response = await axios
-			.post("/api/link/delete", { id })
+			.delete("/api/link/delete", { params: { id } })
 			.then(parseAxiosResponse)
 			.catch(parseAxiosError);
 
@@ -52,10 +54,12 @@ const LinkComponent: FC<{ link: LinkType }> = ({ link }) => {
 					</div>
 					{user !== null && (
 						<div className="col col-1">
-							<Link href="/link/edit">
+							<Link href={`/link/edit/${link.id}`}>
 								<a className="mr-2">edit</a>
 							</Link>
-							<a onClick={() => deleteLink(link.id)}>delete</a>
+							<a className={styles.delete} onClick={() => deleteLink(link.id)}>
+								delete
+							</a>
 						</div>
 					)}
 				</div>

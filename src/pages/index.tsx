@@ -1,55 +1,27 @@
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import { NextSeo } from "next-seo";
-import z from "zod";
 
-import { RepositoryResponse } from "@models/git/responses";
+import Landing from "@models/landing";
 
-import { giteaUsername } from "@utils/config";
-import {
-	fetchAvailability,
-	fetchRepositories,
-	fetchUser
-} from "@utils/git/fetch";
+import { readLandingJson } from "@utils/landing";
 
-import BestRepository from "@components/BestRepository";
-import FeaturedRepositories from "@components/FeaturedRepositories";
 import Layout from "@components/Layout";
 import User from "@components/User";
 
-export const getStaticProps: GetStaticProps = async () => {
-	const isAvailable = await fetchAvailability();
+export const getStaticProps: GetStaticProps<Landing> = async () => {
+	const landing = await readLandingJson();
 
-	const user = await fetchUser(giteaUsername);
+	if (landing === null) return { revalidate: 1, notFound: true };
 
-	const repositories = await fetchRepositories(user.id);
-
-	const bestRepository: z.infer<typeof RepositoryResponse> | undefined =
-		repositories.reduce((prev, current) =>
-			prev.stars_count > current.stars_count ? prev : current
-		);
-
-	return {
-		props: {
-			isAvailable,
-			user,
-			bestRepository,
-			repositories
-		},
-		revalidate: 60 * 5
-	};
+	return { props: landing };
 };
 
-const Index: NextPage = ({
-	repositories,
-	user,
-	bestRepository,
-	isAvailable
-}: InferGetStaticPropsType<typeof getStaticProps>) => (
+const Index: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
+	landing
+) => (
 	<Layout>
 		<NextSeo title="Home" />
-		<User isAvailable={isAvailable} user={user} />
-		<FeaturedRepositories repositories={repositories} />
-		<BestRepository repository={bestRepository} />
+		<User owner={landing.owner} />
 	</Layout>
 );
 

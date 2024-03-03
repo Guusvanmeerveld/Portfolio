@@ -1,8 +1,8 @@
 import z from "zod";
 
 export const Post = z.object({
-	title: z.string(),
-	content: z.string().min(100),
-	tags: z.string(),
+	title: z.string().trim(),
+	content: z.string().min(100).trim(),
+	tags: z.string().trim(),
 	publish: z.boolean()
 });

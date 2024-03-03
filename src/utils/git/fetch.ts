@@ -9,18 +9,8 @@ import {
 } from "@models/git/responses";
 
 import { giteaServerUrl } from "@utils/config";
-import createConfigCatClient from "@utils/createConfigCatClient";
 
 const apiUrl = `https://${giteaServerUrl}/api/v1`;
-
-export const fetchAvailability = async (): Promise<boolean> => {
-	const configCatClient = createConfigCatClient();
-
-	const isAvailable: boolean =
-		(await configCatClient?.getValueAsync("amiavailable", true)) ?? true;
-
-	return isAvailable;
-};
 
 export const fetchUser = async (
 	giteaUsername: string

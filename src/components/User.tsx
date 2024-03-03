@@ -1,68 +1,73 @@
 import Image from "next/image";
-import z from "zod";
+import Link from "next/link";
 
 import styles from "./user.module.scss";
 
 import { FC } from "react";
 
-import { UserResponse } from "@models/git/responses";
+import Owner from "@models/owner";
 
-import { giteaServerUrl } from "@utils/config";
 import multipleClassNames from "@utils/multipleClassNames";
 
-const User: FC<{ isAvailable: boolean; user: z.infer<typeof UserResponse> }> =
-	({ isAvailable, user }) => {
-		return (
-			<div className={styles.main}>
-				<div className="container">
-					<div className="columns">
-						<div
-							className={multipleClassNames(
-								"column",
-								"col-4",
-								"col-mx-auto",
-								styles.avatarCol
-							)}
-						>
-							<div className={styles.avatarContainer}>
-								<Image
-									src={user.avatar_url}
-									className={styles.avatar}
-									width={256}
-									height={256}
-									alt={`${user.full_name}'s avatar`}
-								/>
-							</div>
+const User: FC<{ owner: Owner }> = ({ owner }) => {
+	return (
+		<div className={styles.main}>
+			<div className="container">
+				<div className="columns">
+					<div
+						className={multipleClassNames(
+							"column",
+							"col-4",
+							"col-mx-auto",
+							styles.avatarCol
+						)}
+					>
+						<div className={styles.avatarContainer}>
+							<Image
+								src={owner.avatar ?? ""}
+								className={styles.avatar}
+								width={256}
+								height={256}
+								alt={`${owner.name}'s avatar`}
+							/>
 						</div>
-						<div className="column col-8 col-md-12 col-mx-auto">
-							<h1>{user.full_name}</h1>
+					</div>
+					<div className="column col-8 col-md-12 col-mx-auto">
+						<h1>{owner.fullName}</h1>
 
-							<h3>{user.description}</h3>
+						<h3>{owner.description}</h3>
 
-							<p>
-								<a
-									target="_blank"
-									rel="noreferrer"
-									href={`https://${giteaServerUrl}/${user.login}`}
-									className="btn btn-primary mr-2"
-								>
-									Git
-								</a>
+						<p>
+							<Link
+								target="_blank"
+								rel="noreferrer"
+								href={owner.contact.git}
+								className="btn btn-primary mr-2"
+							>
+								Git
+							</Link>
 
-								<a href={`mailto:${user.email}`} className="btn btn-primary">
-									Contact
-								</a>
-							</p>
+							<Link
+								target="_blank"
+								rel="noreferrer"
+								href={owner.contact.linkedin}
+								className="btn btn-primary mr-2"
+							>
+								Git
+							</Link>
 
-							<p className="text-gray">
-								Availibility: {isAvailable && "Available"}
-								{!isAvailable && "Not available"}
-							</p>
-						</div>
+							<Link
+								href={`mailto:${owner.contact.email}`}
+								className="btn btn-primary"
+							>
+								Contact
+							</Link>
+						</p>
 					</div>
 				</div>
 			</div>
-		);
-	};
+		</div>
+	);
+};
 
 export default User;

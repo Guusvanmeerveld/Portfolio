@@ -1,9 +1,3 @@
-export const giteaServerUrl =
-	process.env.NEXT_PUBLIC_GITEA_SERVER ?? "https://git.guusvanmeerveld.dev";
-
-export const giteaUsername =
-	process.env.NEXT_PUBLIC_GITEA_USERNAME ?? "Guusvanmeerveld";
-
 export const sessionCookieName = "portfolio-session";
 export const sessionPassword = process.env.SESSION_PASSWORD ?? "";
 
@@ -20,3 +14,6 @@ export const registrationIsEnabled =
 
 export const saltRoundsForPassword =
 	parseInt(process.env.PASSWORD_SALT_ROUNDS ?? "") || 10;
+
+export const landingJsonLocation =
+	process.env.LANDING_JSON_LOCATION ?? "/app/landing.json";

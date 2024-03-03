@@ -4,7 +4,6 @@ import styles from "./footer.module.scss";
 
 import { FC } from "react";
 
-import { giteaServerUrl, giteaUsername } from "@utils/config";
 import multipleClassNames from "@utils/multipleClassNames";
 
 const Footer: FC = () => {
@@ -17,9 +16,6 @@ const Footer: FC = () => {
 							<h3>Guus van Meerveld</h3>
 						</div>
 						<div className="col col-12">
-							<Link href={`https://${giteaServerUrl}/${giteaUsername}`}>
-								<a className="mr-2">Git</a>
-							</Link>
 							&middot;
 							<Link href="https://twitter.com/Guusvanmeerveld">
 								<a className="mx-2">Twitter</a>
