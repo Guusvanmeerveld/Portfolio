@@ -8,10 +8,10 @@ platform:
 
 steps:
   - name: Test the newest commit
-    image: node:16-alpine
+    image: node:20-alpine
     volumes:
-    - name: cache
-      path: /drone/src/node_modules
+      - name: cache
+        path: /drone/src/node_modules
     commands:
       - yarn install
       - yarn run prisma:generate
@@ -37,7 +37,7 @@ steps:
     image: plugins/docker
     settings:
       repo: guusvanmeerveld/portfolio
-      tags: 
+      tags:
         - latest
         - latest-amd64
       platforms: linux/amd64
