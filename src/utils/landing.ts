@@ -1,20 +1,24 @@
 import { readJson } from "fs-extra";
+import path from "path";
 
 import Landing, { LandingModel } from "@models/landing";
 
-import { landingJsonLocation } from "@utils/constants";
 import exists from "@utils/fileExists";
 
-export const readLandingJson = async (): Promise<Landing> => {
-	const location = landingJsonLocation;
+export const readLandingJson = async (
+	dataDirLocation: string
+): Promise<Landing> => {
+	const landingJsonLocation = path.join(dataDirLocation, "landing.json");
 
-	const fileExists = await exists(location);
+	const fileExists = await exists(landingJsonLocation);
 
 	if (!fileExists) {
-		throw new Error(`Could not find landing json file at: ${location}`);
+		throw new Error(
+			`Could not find landing json file at: ${landingJsonLocation}`
+		);
 	}
 
-	const rawJson: unknown = await readJson(location);
+	const rawJson: unknown = await readJson(landingJsonLocation);
 
 	const landingResult = LandingModel.safeParse(rawJson);
 
@@ -23,3 +27,5 @@ export const readLandingJson = async (): Promise<Landing> => {
 
 	return landingResult.data;
 };
+
+// const readPfpFile = async (location: string): Promise<> => {};

@@ -1,17 +1,11 @@
 "use client";
 
-import { Link, Spacer } from "@nextui-org/react";
+import { Link } from "@nextui-org/react";
+import { ErrorPage } from "@typings/errorPage";
 
-// Error components must be Client Components
 import { useEffect } from "react";
 
-export default function Error({
-	error,
-	reset
-}: {
-	error: Error & { digest?: string };
-	reset: () => void;
-}) {
+const errorPage: ErrorPage = ({ error, reset }) => {
 	useEffect(() => {
 		console.error(error);
 	}, [error]);
@@ -27,4 +21,6 @@ export default function Error({
 			</div>
 		</div>
 	);
-}
+};
+
+export default errorPage;

@@ -1,2 +1,3 @@
-export const landingJsonLocation =
-	process.env.LANDING_JSON_LOCATION ?? "/app/landing.json";
+import path from "path";
+
+export const dataDirLocation = process.env.DATA_DIR ?? "/app/data";
