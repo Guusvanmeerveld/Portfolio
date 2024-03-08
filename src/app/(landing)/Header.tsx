@@ -52,8 +52,8 @@ export const Header: Component<{ owner: Owner }> = ({ owner }) => {
 				<Spacer y={4} />
 
 				{socials.map((social) => (
-					<Link href={social.link}>
-						<Tooltip content={social.name}>
+					<Link href={social.link} key={social.name.toLowerCase()}>
+						<Tooltip showArrow content={social.name}>
 							<Button
 								className="text-2xl mr-4"
 								color="primary"

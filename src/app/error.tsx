@@ -5,7 +5,7 @@ import { ErrorPage } from "@typings/errorPage";
 
 import { useEffect } from "react";
 
-const errorPage: ErrorPage = ({ error, reset }) => {
+const MainErrorPage: ErrorPage = ({ error, reset }) => {
 	useEffect(() => {
 		console.error(error);
 	}, [error]);
@@ -23,4 +23,4 @@ const errorPage: ErrorPage = ({ error, reset }) => {
 	);
 };
 
-export default errorPage;
+export default MainErrorPage;
