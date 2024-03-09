@@ -1,6 +1,6 @@
 import z from "zod";
 
-export const OwnerModel = z.object({
+export const HeaderPropsModel = z.object({
 	fullName: z.string(),
 	name: z.string(),
 	avatar: z.string().optional(),
@@ -12,6 +12,6 @@ export const OwnerModel = z.object({
 	})
 });
 
-export type Owner = z.infer<typeof OwnerModel>;
+export type HeaderProps = z.infer<typeof HeaderPropsModel>;
 
-export default Owner;
+export default HeaderProps;

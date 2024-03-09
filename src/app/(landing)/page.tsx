@@ -1,3 +1,4 @@
+import { Footer } from "../Footer";
 import { Header } from "./Header";
 
 import Landing from "@models/landing";
@@ -15,7 +16,8 @@ export default async function Page() {
 
 	return (
 		<>
-			<Header owner={landing.owner} />
+			<Header header={landing.header} />
+			<Footer />
 		</>
 	);
 }

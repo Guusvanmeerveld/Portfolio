@@ -10,45 +10,45 @@ import Link from "next/link";
 import { useMemo } from "react";
 import { FiGithub, FiMail, FiLinkedin } from "react-icons/fi";
 
-import Owner from "@models/owner";
+import HeaderProps from "@models/header";
 
-export const Header: Component<{ owner: Owner }> = ({ owner }) => {
+export const Header: Component<{ header: HeaderProps }> = ({ header }) => {
 	const socials = useMemo(
 		() => [
 			{
-				link: `mailto:${owner.contact.email}`,
+				link: `mailto:${header.contact.email}`,
 				name: "Email address",
 				icon: <FiMail />
 			},
 			{
-				link: owner.contact.git,
+				link: header.contact.git,
 				name: "Github",
 				icon: <FiGithub />
 			},
 			{
-				link: owner.contact.linkedin,
+				link: header.contact.linkedin,
 				name: "LinkedIn",
 				icon: <FiLinkedin />
 			}
 		],
-		[owner.contact]
+		[header.contact]
 	);
 
 	return (
-		<div className="container min-h-screen">
+		<div className="container mx-auto flex items-center min-h-screen">
 			<div>
-				{owner.avatar !== undefined && (
+				{header.avatar !== undefined && (
 					<Image
-						src={owner.avatar}
+						src={header.avatar}
 						width={300}
-						alt={`A picture of ${owner.fullName}`}
+						alt={`A picture of ${header.fullName}`}
 					/>
 				)}
 
-				<h1 className="text-4xl">{owner.fullName}</h1>
+				<h1 className="text-4xl">{header.fullName}</h1>
 				<Spacer y={4} />
 
-				<h2 className="text-2xl">{owner.description}</h2>
+				<h2 className="text-2xl">{header.description}</h2>
 				<Spacer y={4} />
 
 				{socials.map((social) => (

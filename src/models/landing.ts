@@ -1,9 +1,11 @@
 import z from "zod";
 
-import { OwnerModel } from "./owner";
+import { FooterPropsModel } from "./footer";
+import { HeaderPropsModel } from "./header";
 
 export const LandingModel = z.object({
-	owner: OwnerModel
+	header: HeaderPropsModel,
+	footer: FooterPropsModel
 });
 
 export type Landing = z.infer<typeof LandingModel>;

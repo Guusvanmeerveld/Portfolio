@@ -11,13 +11,15 @@ const MainErrorPage: ErrorPage = ({ error, reset }) => {
 	}, [error]);
 
 	return (
-		<div className="container min-h-screen text-center">
-			<p className="text-3xl">Something went loading the page!</p>
-			<p className="text-xl">{error.toString()}</p>
+		<div className="container mx-auto flex items-center justify-center min-h-screen text-center">
 			<div>
-				<Link href="#" onClick={() => reset()}>
-					Try again
-				</Link>
+				<p className="text-3xl">Something went loading the page!</p>
+				<p className="text-xl">{error.toString()}</p>
+				<div>
+					<Link href="#" onClick={() => reset()}>
+						Try again
+					</Link>
+				</div>
 			</div>
 		</div>
 	);

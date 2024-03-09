@@ -1,12 +1,13 @@
 {
-    "owner": {
-        "fullName": "Guus van Meerveld",
-        "name": "guus",
-        "description": "AI student at Radboud University. Creating software as a hobby.",
-        "contact": {
-            "email": "contact@guusvanmeerveld.dev",
-            "git": "https://github.com/Guusvanmeerveld",
-            "linkedin": "https://linkedin.com/in/guus-van-meerveld-038357210"
-        }
-    }
+	"header": {
+		"fullName": "Guus van Meerveld",
+		"name": "guus",
+		"description": "AI student at Radboud University. Creating software as a hobby.",
+		"contact": {
+			"email": "contact@guusvanmeerveld.dev",
+			"git": "https://github.com/Guusvanmeerveld",
+			"linkedin": "https://linkedin.com/in/guus-van-meerveld-038357210"
+		}
+	},
+	"footer": {}
 }
