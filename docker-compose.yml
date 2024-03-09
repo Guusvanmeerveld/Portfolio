@@ -1,17 +1,15 @@
 version: "3"
 
 services:
-  # app:
-  #   build: .
-  #   container_name: portfolio
-  #   environment:
-  #     NEXT_PUBLIC_GITEA_USERNAME: "Guusvanmeerveld"
-  #     NEXT_PUBLIC_GITEA_SERVER: "git.guusvanmeerveld.dev"
-  #     SESSION_PASSWORD: "jsdlakfjad;slkfjepoweaur3290r830-q998-039jaklfjdkl"
-  #     NEXT_PUBLIC_ALLOW_REGISTRATION: true
-  #     DATABASE_URL: "postgres://portfolio:portfolio@db:5432/portfolio"
-  #   ports:
-  #     - 3000:3000
+  app:
+    build: .
+    container_name: portfolio
+    volumes:
+      - ./data:/app/data
+    environment:
+      DATABASE_URL: "postgres://portfolio:portfolio@db:5432/portfolio"
+    ports:
+      - 3000:3000
 
   db:
     image: postgres:14
@@ -25,5 +23,5 @@ services:
     volumes:
       - db:/var/lib/postgresql/data
 
-volumes: 
+volumes:
   db:

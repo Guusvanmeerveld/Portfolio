@@ -1,0 +1,55 @@
+"use client";
+
+import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
+import { Divider } from "@nextui-org/divider";
+import { Image } from "@nextui-org/image";
+import { Link } from "@nextui-org/link";
+import { Spacer } from "@nextui-org/spacer";
+import { Component } from "@typings/component";
+
+import ProjectProps from "@models/project";
+
+export const Projects: Component<{ data: ProjectProps[] }> = ({ data }) => {
+	return (
+		<>
+			<div className="container mx-auto">
+				<h1 className="text-4xl text-center mb-8">Projects</h1>
+
+				<div className="grid gap-4 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+					{data.map((project) => {
+						const url = new URL(project.url);
+
+						return (
+							<Card key={project.name}>
+								<CardHeader className="flex gap-3">
+									<Image
+										alt={`${project.name} logo`}
+										height={40}
+										radius="sm"
+										src={project.avatarUrl}
+										width={40}
+									/>
+									<div className="flex flex-col">
+										<p className="text-md">{project.name}</p>
+										<p className="text-small text-default-500">{url.host}</p>
+									</div>
+								</CardHeader>
+								<Divider />
+								<CardBody>
+									<p>{project.description}</p>
+								</CardBody>
+								<Divider />
+								<CardFooter>
+									<Link isExternal showAnchorIcon href={project.url}>
+										Visit the project.
+									</Link>
+								</CardFooter>
+							</Card>
+						);
+					})}
+				</div>
+			</div>
+			<Spacer y={24} />
+		</>
+	);
+};
