@@ -12,29 +12,29 @@ import { FiGithub, FiMail, FiLinkedin } from "react-icons/fi";
 
 import HeaderProps from "@models/header";
 
-export const Header: Component<{ header: HeaderProps; avatar: string }> = ({
-	header,
+export const Header: Component<{ data: HeaderProps; avatar: string }> = ({
+	data,
 	avatar
 }) => {
 	const socials = useMemo(
 		() => [
 			{
-				link: `mailto:${header.contact.email}`,
+				link: `mailto:${data.contact.email}`,
 				name: "Email address",
 				icon: <FiMail />
 			},
 			{
-				link: header.contact.git,
+				link: data.contact.git,
 				name: "Github",
 				icon: <FiGithub />
 			},
 			{
-				link: header.contact.linkedin,
+				link: data.contact.linkedin,
 				name: "LinkedIn",
 				icon: <FiLinkedin />
 			}
 		],
-		[header.contact]
+		[data.contact]
 	);
 
 	return (
@@ -44,31 +44,35 @@ export const Header: Component<{ header: HeaderProps; avatar: string }> = ({
 					isBlurred
 					src={avatar}
 					width={300}
-					alt={`A picture of ${header.fullName}`}
+					alt={`A picture of ${data.fullName}`}
 				/>
 
 				<Spacer x={8} />
 
 				<div>
-					<h1 className="text-4xl">{header.fullName}</h1>
+					<h1 className="text-4xl">{data.fullName}</h1>
 					<Spacer y={4} />
 
-					<h2 className="text-2xl">{header.description}</h2>
+					<h2 className="text-2xl">{data.description}</h2>
 					<Spacer y={4} />
 
 					{socials.map((social) => (
-						<Link href={social.link} key={social.name.toLowerCase()}>
-							<Tooltip showArrow content={social.name}>
-								<Button
-									className="text-2xl mr-4"
-									color="primary"
-									isIconOnly
-									aria-label={social.name}
-								>
-									{social.icon}
-								</Button>
-							</Tooltip>
-						</Link>
+						<Tooltip
+							key={social.name.toLowerCase()}
+							showArrow
+							content={social.name}
+						>
+							<Button
+								href={social.link}
+								as={Link}
+								className="text-2xl mr-4"
+								color="primary"
+								isIconOnly
+								aria-label={social.name}
+							>
+								{social.icon}
+							</Button>
+						</Tooltip>
 					))}
 				</div>
 			</div>

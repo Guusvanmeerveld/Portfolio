@@ -18,20 +18,15 @@ export const ThemeSwitcher: Component = () => {
 	if (!mounted) return null;
 
 	return (
-		<div>
-			The current theme is: {theme}
-			<Switch
-				defaultSelected
-				size="lg"
-				color="primary"
-				onValueChange={(value) => {
-					value ? setTheme("dark") : setTheme("light");
-				}}
-				startContent={<FiSun />}
-				endContent={<FiMoon />}
-			>
-				Dark mode
-			</Switch>
-		</div>
+		<Switch
+			defaultSelected
+			size="lg"
+			color="primary"
+			onValueChange={(value) => {
+				value ? setTheme("dark") : setTheme("light");
+			}}
+			startContent={<FiSun />}
+			endContent={<FiMoon />}
+		/>
 	);
 };

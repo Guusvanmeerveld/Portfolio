@@ -9,5 +9,21 @@
 			"linkedin": "https://linkedin.com/in/guus-van-meerveld-038357210"
 		}
 	},
-	"footer": {}
+	"footer": {
+		"columns": [
+			{
+				"title": "Built with",
+				"links": [
+					{ "url": "https://nextjs.org/", "text": "Next.js" },
+					{ "url": "https://nextui.org/", "text": "NextUI" }
+				]
+			},
+			{
+				"title": "Social",
+				"links": [
+					{ "url": "https://github.com/Guusvanmeerveld", "text": "Github" }
+				]
+			}
+		]
+	}
 }

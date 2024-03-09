@@ -11,8 +11,8 @@ export default async function Page() {
 
 	return (
 		<>
-			<Header header={landing.header} avatar={avatar} />
-			<Footer />
+			<Header data={landing.header} avatar={avatar} />
+			<Footer data={landing.footer} />
 		</>
 	);
 }
