@@ -1,6 +1,7 @@
 "use client";
 
-import { Divider, Link } from "@nextui-org/react";
+import { Divider } from "@nextui-org/divider";
+import { Link } from "@nextui-org/link";
 import { Component } from "@typings/component";
 
 import { ThemeSwitcher } from "./ThemeSwitcher";

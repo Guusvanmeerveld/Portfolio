@@ -67,6 +67,7 @@ export const Header: Component<{ data: HeaderProps; avatar: string }> = ({
 								as={Link}
 								className="text-2xl mr-4"
 								color="primary"
+								variant="shadow"
 								isIconOnly
 								aria-label={social.name}
 							>

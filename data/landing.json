@@ -9,6 +9,26 @@
 			"linkedin": "https://linkedin.com/in/guus-van-meerveld-038357210"
 		}
 	},
+	"projects": [
+		{
+			"name": "Dust-Mail",
+			"avatarUrl": "https://avatars.githubusercontent.com/u/130915639?s=200&v=4",
+			"description": "Dust-Mail is a free and open source project that aims to replace all desktop and web email clients by providing a fast and simple experience.",
+			"url": "https://github.com/Dust-Mail/"
+		},
+		{
+			"name": "Argo-Client",
+			"avatarUrl": "https://avatars.githubusercontent.com/u/71986232?s=200&v=4",
+			"description": "Argo is a modern client for Magister 6 that is available for Android and IOS.",
+			"url": "https://argo-magister.nl"
+		},
+		{
+			"name": "MaterialTube",
+			"avatarUrl": "https://raw.githubusercontent.com/Guusvanmeerveld/MaterialTube/master/src/svg/logo.svg",
+			"description": "MaterialTube is a beautiful and elegant web client for Invidious servers, built using Next.js and MUI.",
+			"url": "https://github.com/Guusvanmeerveld/MaterialTube"
+		}
+	],
 	"footer": {
 		"columns": [
 			{

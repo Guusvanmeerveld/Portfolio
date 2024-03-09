@@ -1,5 +1,6 @@
 import { Footer } from "../Footer";
 import { Header } from "./Header";
+import { Projects } from "./Projects";
 
 import { dataDirLocation } from "@utils/constants";
 import { readAvatarFile, readLandingJson } from "@utils/landing";
@@ -12,6 +13,7 @@ export default async function Page() {
 	return (
 		<>
 			<Header data={landing.header} avatar={avatar} />
+			<Projects data={landing.projects} />
 			<Footer data={landing.footer} />
 		</>
 	);
