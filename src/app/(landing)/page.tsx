@@ -1,22 +1,17 @@
 import { Footer } from "../Footer";
 import { Header } from "./Header";
 
-import Landing from "@models/landing";
-
 import { dataDirLocation } from "@utils/constants";
-import { readLandingJson } from "@utils/landing";
-
-const getLanding = async (): Promise<Landing> => {
-	// Any error will get handled by the `error.tsx` file.
-	return await readLandingJson(dataDirLocation);
-};
+import { readAvatarFile, readLandingJson } from "@utils/landing";
 
 export default async function Page() {
-	const landing = await getLanding();
+	// Any error will get handled by the `error.tsx` file.
+	const landing = await readLandingJson(dataDirLocation);
+	const avatar = await readAvatarFile(dataDirLocation);
 
 	return (
 		<>
-			<Header header={landing.header} />
+			<Header header={landing.header} avatar={avatar} />
 			<Footer />
 		</>
 	);

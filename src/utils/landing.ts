@@ -1,5 +1,7 @@
-import { readJson } from "fs-extra";
+import { readFile, readJson } from "fs-extra";
 import path from "path";
+
+import { avatarFileFormat } from "./constants";
 
 import Landing, { LandingModel } from "@models/landing";
 
@@ -28,4 +30,17 @@ export const readLandingJson = async (
 	return landingResult.data;
 };
 
-// const readPfpFile = async (location: string): Promise<> => {};
+export const readAvatarFile = async (
+	dataDirLocation: string
+): Promise<string> => {
+	const avatarFileLocation = path.join(
+		dataDirLocation,
+		`avatar.${avatarFileFormat}`
+	);
+
+	const imageData = await readFile(avatarFileLocation);
+
+	const base64Image = Buffer.from(imageData).toString("base64");
+
+	return `data:image/${avatarFileFormat};base64,${base64Image}`;
+};
