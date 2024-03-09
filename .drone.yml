@@ -8,7 +8,7 @@ platform:
 
 steps:
   - name: Test the newest commit
-    image: node:20-alpine
+    image: node:lts-alpine
     volumes:
       - name: cache
         path: /drone/src/node_modules
