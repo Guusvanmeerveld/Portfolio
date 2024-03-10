@@ -10,6 +10,8 @@ import { Component } from "@typings/component";
 import humanizeDuration from "humanize-duration";
 import NextImage from "next/image";
 
+import { Fragment } from "react";
+
 import CvProps, {
 	Education as EducationProps,
 	Skill as SkillProps
@@ -112,6 +114,7 @@ export const Cv: Component<{ data: CvProps }> = ({ data }) => {
 					{data.programmingLanguages.map((skill) => (
 						<Skill skill={skill} key={skill.name.toLowerCase()} />
 					))}
+
 					<Spacer y={8} />
 				</div>
 				<Spacer x={8} />
@@ -120,13 +123,10 @@ export const Cv: Component<{ data: CvProps }> = ({ data }) => {
 
 					{data.education.map((education) => {
 						return (
-							<>
+							<Fragment key={education.title.toLowerCase()}>
 								<Spacer y={4} />
-								<Education
-									education={education}
-									key={education.title.toLowerCase()}
-								/>
-							</>
+								<Education education={education} />
+							</Fragment>
 						);
 					})}
 				</div>
