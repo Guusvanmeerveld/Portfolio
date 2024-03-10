@@ -45,12 +45,19 @@
 			"skills": ["Mathematics", "Neuroscience", "Computer science"]
 		},
 		{
-			"title": "VWO (NT&G)",
+			"title": "Highschool VWO (NT&G)",
 			"timeFrame": "2016 - 2022",
 			"institution": "RSG Pantarijn MHV Wageningen",
 			"location": "Wageningen, Netherlands",
 			"skills": ["Biology", "Physics", "Mathematics"]
 		}
 	],
-	"experience": []
+	"experience": [
+		{
+			"title": "Albert Heijn",
+			"timeFrame": "2020 - 2023",
+			"role": "Store employee",
+			"description": ""
+		}
+	]
 }

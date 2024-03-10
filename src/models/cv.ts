@@ -25,6 +25,8 @@ const ExperienceModel = z.object({
 	description: z.string()
 });
 
+export type Experience = z.infer<typeof ExperienceModel>;
+
 export const CvPropsModel = z.object({
 	fullName: z.string(),
 	role: z.string(),

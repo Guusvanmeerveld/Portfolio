@@ -1,4 +1,3 @@
-import { readJson } from "fs-extra";
 import path from "path";
 
 import { readAndParseJsonFile } from "./json";
