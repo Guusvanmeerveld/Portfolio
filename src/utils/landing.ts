@@ -2,33 +2,17 @@ import { readFile, readJson } from "fs-extra";
 import path from "path";
 
 import { avatarFileFormat } from "./constants";
+import { readAndParseJsonFile } from "./json";
 
 import { cache } from "react";
 
 import Landing, { LandingModel } from "@models/landing";
 
-import exists from "@utils/fileExists";
-
 export const readLandingJson = cache(
 	async (dataDirLocation: string): Promise<Landing> => {
 		const landingJsonLocation = path.join(dataDirLocation, "landing.json");
 
-		const fileExists = await exists(landingJsonLocation);
-
-		if (!fileExists) {
-			throw new Error(
-				`Could not find landing json file at: ${landingJsonLocation}`
-			);
-		}
-
-		const rawJson: unknown = await readJson(landingJsonLocation);
-
-		const landingResult = LandingModel.safeParse(rawJson);
-
-		if (!landingResult.success)
-			throw new Error(`Failed to parse landing json: ${landingResult.error}`);
-
-		return landingResult.data;
+		return await readAndParseJsonFile(landingJsonLocation, LandingModel);
 	}
 );
 
