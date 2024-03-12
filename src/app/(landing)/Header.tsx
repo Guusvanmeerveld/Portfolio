@@ -6,17 +6,25 @@ import { Link } from "@nextui-org/link";
 import { Spacer } from "@nextui-org/spacer";
 import { Tooltip } from "@nextui-org/tooltip";
 import { Component } from "@typings/component";
+import NextLink from "next/link";
 
 import { useMemo } from "react";
-import { FiGithub, FiMail, FiLinkedin } from "react-icons/fi";
+import { FiGithub, FiMail, FiLinkedin, FiFileText } from "react-icons/fi";
 
 import HeaderProps from "@models/header";
+
+interface Social {
+	link: string;
+	name: string;
+	icon: React.ReactElement;
+	isExternal?: boolean;
+}
 
 export const Header: Component<{ data: HeaderProps; avatar: string }> = ({
 	data,
 	avatar
 }) => {
-	const socials = useMemo(
+	const socials = useMemo<Social[]>(
 		() => [
 			{
 				link: `mailto:${data.contact.email}`,
@@ -32,6 +40,12 @@ export const Header: Component<{ data: HeaderProps; avatar: string }> = ({
 				link: data.contact.linkedin,
 				name: "LinkedIn",
 				icon: <FiLinkedin />
+			},
+			{
+				link: "/cv",
+				name: "Cv",
+				icon: <FiFileText />,
+				isExternal: false
 			}
 		],
 		[data.contact]
@@ -57,7 +71,12 @@ export const Header: Component<{ data: HeaderProps; avatar: string }> = ({
 					<Spacer y={4} />
 
 					{socials.map((social) => (
-						<Link isExternal href={social.link} key={social.name.toLowerCase()}>
+						<Link
+							isExternal={social.isExternal ?? true}
+							as={NextLink}
+							href={social.link}
+							key={social.name.toLowerCase()}
+						>
 							<Tooltip showArrow content={social.name}>
 								<Button
 									className="text-2xl mr-4"

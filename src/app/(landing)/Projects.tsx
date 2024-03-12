@@ -12,10 +12,10 @@ import ProjectProps from "@models/project";
 export const Projects: Component<{ data: ProjectProps[] }> = ({ data }) => {
 	return (
 		<>
-			<div className="container mx-auto">
+			<div className="container mx-auto p-4 min-h-96">
 				<h1 className="text-4xl text-center mb-8">Projects</h1>
 
-				<div className="grid gap-4 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+				<div className="grid gap-4 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 ">
 					{data.map((project) => {
 						const url = new URL(project.url);
 

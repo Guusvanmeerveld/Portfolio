@@ -1,7 +1,6 @@
 "use client";
 
 import { Card, CardBody } from "@nextui-org/card";
-import { Divider } from "@nextui-org/divider";
 import { Image } from "@nextui-org/image";
 import { Listbox, ListboxItem } from "@nextui-org/listbox";
 import { Progress } from "@nextui-org/progress";
