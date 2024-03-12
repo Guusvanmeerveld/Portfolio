@@ -2,10 +2,10 @@
 
 import { Button } from "@nextui-org/button";
 import { Image } from "@nextui-org/image";
-import { Spacer } from "@nextui-org/react";
+import { Link } from "@nextui-org/link";
+import { Spacer } from "@nextui-org/spacer";
 import { Tooltip } from "@nextui-org/tooltip";
 import { Component } from "@typings/component";
-import Link from "next/link";
 
 import { useMemo } from "react";
 import { FiGithub, FiMail, FiLinkedin } from "react-icons/fi";
@@ -57,23 +57,19 @@ export const Header: Component<{ data: HeaderProps; avatar: string }> = ({
 					<Spacer y={4} />
 
 					{socials.map((social) => (
-						<Tooltip
-							key={social.name.toLowerCase()}
-							showArrow
-							content={social.name}
-						>
-							<Button
-								href={social.link}
-								as={Link}
-								className="text-2xl mr-4"
-								color="primary"
-								variant="shadow"
-								isIconOnly
-								aria-label={social.name}
-							>
-								{social.icon}
-							</Button>
-						</Tooltip>
+						<Link isExternal href={social.link} key={social.name.toLowerCase()}>
+							<Tooltip showArrow content={social.name}>
+								<Button
+									className="text-2xl mr-4"
+									color="primary"
+									variant="shadow"
+									isIconOnly
+									aria-label={social.name}
+								>
+									{social.icon}
+								</Button>
+							</Tooltip>
+						</Link>
 					))}
 				</div>
 			</div>
