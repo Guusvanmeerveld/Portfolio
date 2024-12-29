@@ -93,7 +93,10 @@ const Experience: Component<{ experience: ExperienceProps }> = ({
 	);
 };
 
-export const Cv: Component<{ data: CvProps }> = ({ data }) => {
+export const Cv: Component<{ data: CvProps; avatar: string }> = ({
+	data,
+	avatar
+}) => {
 	return (
 		<div className="px-2 container mx-auto min-h-screen py-8">
 			<div className="md:flex items-center">
@@ -104,7 +107,7 @@ export const Cv: Component<{ data: CvProps }> = ({ data }) => {
 						className="mx-auto md:mx-0"
 						width={200}
 						height={200}
-						src="/cv.jpg"
+						src={avatar}
 					/>
 				</div>
 
