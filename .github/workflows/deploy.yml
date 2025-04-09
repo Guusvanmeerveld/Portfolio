@@ -1,22 +1,34 @@
-name: deploy
+name: Deploy website to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
+    paths:
+      - "data/**"
+      - "public/**"
+      - "src/**"
+      - "tsconfig.json"
+      - ".node-version"
+      - "package.json"
+      - "yarn.lock"
+      - ".env"
+      - "next.config.*"
+      - "postcss.config.*"
+      - "tailwind.config.*"
+      - ".github/workflows/deploy.yml"
 
 jobs:
   build:
+    name: Build website
     runs-on: ubuntu-latest
 
     steps:
       - name: Setup checkout
         uses: actions/checkout@v2
 
-      - name: Setup NodeJS v20
-        uses: actions/setup-node@v1
+      - name: Setup NodeJS
+        uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version-file: .node-version
 
       - name: Install Dependencies
         run: yarn install
@@ -34,8 +46,8 @@ jobs:
           path: out/
 
   publish-pages:
+    name: Deploy to GitHub pages
     needs: build
-
     runs-on: ubuntu-latest
 
     environment:
