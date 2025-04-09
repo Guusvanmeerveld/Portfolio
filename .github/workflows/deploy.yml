@@ -30,6 +30,9 @@ jobs:
         with:
           node-version-file: .node-version
 
+      - name: Setup Next.js cache
+        uses: jongwooo/next-cache@v1
+
       - name: Install Dependencies
         run: yarn install
 
