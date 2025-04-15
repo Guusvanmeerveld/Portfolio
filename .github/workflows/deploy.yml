@@ -2,9 +2,6 @@ name: Deploy website to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
-
     paths:
       - "data/**"
       - "public/**"
@@ -23,6 +20,10 @@ jobs:
   build:
     name: Build website
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pull-requests: write
 
     steps:
       - name: Setup checkout
@@ -46,6 +47,7 @@ jobs:
         run: yarn build
 
       - name: Upload GitHub Pages artifact
+        if: github.ref == 'refs/heads/main' # Only run on main branch
         id: deployment
         uses: actions/upload-pages-artifact@v3
         with:
@@ -63,6 +65,8 @@ jobs:
     permissions:
       pages: write # to deploy to Pages
       id-token: write # to verify the deployment originates from an appropriate source
+
+    if: github.ref == 'refs/heads/main'
 
     steps:
       - name: Deploy artifact to pages

@@ -11,6 +11,6 @@ updates:
       interval: "weekly"
 
     groups:
-      production-dependencies:
+      all-dependencies:
         patterns:
           - "*"
