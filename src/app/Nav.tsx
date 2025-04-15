@@ -7,7 +7,7 @@ import {
 	NavbarBrand,
 	NavbarContent,
 	NavbarItem
-} from "@nextui-org/react";
+} from "@heroui/react";
 import { Component } from "@typings/component";
 
 export const Nav: Component = () => {

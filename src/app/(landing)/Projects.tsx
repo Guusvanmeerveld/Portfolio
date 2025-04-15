@@ -1,10 +1,10 @@
 "use client";
 
-import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
-import { Divider } from "@nextui-org/divider";
-import { Image } from "@nextui-org/image";
-import { Link } from "@nextui-org/link";
-import { Spacer } from "@nextui-org/spacer";
+import { Card, CardHeader, CardBody, CardFooter } from "@heroui/card";
+import { Divider } from "@heroui/divider";
+import { Image } from "@heroui/image";
+import { Link } from "@heroui/link";
+import { Spacer } from "@heroui/spacer";
 import { Component } from "@typings/component";
 
 import ProjectProps from "@models/project";

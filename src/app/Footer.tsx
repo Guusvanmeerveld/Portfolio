@@ -1,7 +1,7 @@
 "use client";
 
-import { Divider } from "@nextui-org/divider";
-import { Link } from "@nextui-org/link";
+import { Divider } from "@heroui/divider";
+import { Link } from "@heroui/link";
 import { Component } from "@typings/component";
 
 import { ThemeSwitcher } from "./ThemeSwitcher";

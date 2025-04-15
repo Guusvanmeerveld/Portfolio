@@ -1,10 +1,10 @@
 "use client";
 
-import { Card, CardBody } from "@nextui-org/card";
-import { Image } from "@nextui-org/image";
-import { Listbox, ListboxItem } from "@nextui-org/listbox";
-import { Progress } from "@nextui-org/progress";
-import { Spacer } from "@nextui-org/spacer";
+import { Card, CardBody } from "@heroui/card";
+import { Image } from "@heroui/image";
+import { Listbox, ListboxItem } from "@heroui/listbox";
+import { Progress } from "@heroui/progress";
+import { Spacer } from "@heroui/spacer";
 import { Component } from "@typings/component";
 import humanizeDuration from "humanize-duration";
 import NextImage from "next/image";

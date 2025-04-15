@@ -1,10 +1,10 @@
 "use client";
 
-import { Button } from "@nextui-org/button";
-import { Image } from "@nextui-org/image";
-import { Link } from "@nextui-org/link";
-import { Spacer } from "@nextui-org/spacer";
-import { Tooltip } from "@nextui-org/tooltip";
+import { Button } from "@heroui/button";
+import { Image } from "@heroui/image";
+import { Link } from "@heroui/link";
+import { Spacer } from "@heroui/spacer";
+import { Tooltip } from "@heroui/tooltip";
 import { Component } from "@typings/component";
 import NextLink from "next/link";
 
