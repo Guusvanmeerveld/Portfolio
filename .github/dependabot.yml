@@ -12,4 +12,5 @@ updates:
 
     groups:
       production-dependencies:
-        dependency-type: "production"
+        patterns:
+          - "*"
