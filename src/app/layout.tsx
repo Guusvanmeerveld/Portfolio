@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { Footer } from "./Footer";
 import { Providers } from "./providers";
 
-import "@styles/global.scss";
+import "@styles/global.css";
 
 export default function RootLayout({
 	children
