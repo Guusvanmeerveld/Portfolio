@@ -4,18 +4,10 @@ import { Switch } from "@heroui/react";
 import { Component } from "@typings/component";
 import { useTheme } from "next-themes";
 
-import { useEffect, useState } from "react";
 import { FiMoon, FiSun } from "react-icons/fi";
 
 export const ThemeSwitcher: Component = () => {
-	const [mounted, setMounted] = useState(false);
 	const { theme, setTheme } = useTheme();
-
-	useEffect(() => {
-		setMounted(true);
-	}, []);
-
-	if (!mounted) return null;
 
 	return (
 		<Switch
