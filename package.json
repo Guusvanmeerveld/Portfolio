@@ -9,7 +9,7 @@
 		"export": "next build && next export",
 		"format": "prettier src --write",
 		"test-build": "tsc",
-		"lint": "next lint"
+		"lint": "eslint ."
 	},
 	"dependencies": {
 		"@heroui/react": "^2.8.5",
